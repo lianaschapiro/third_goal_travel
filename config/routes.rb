@@ -1,99 +1,10 @@
 Rails.application.routes.draw do
-  get 'countries/index'
-
-  get 'countries/show'
-
-  get 'countries/new'
-
-  get 'countries/create'
-
-  get 'countries/edit'
-
-  get 'countries/update'
-
-  get 'regions/index'
-
-  get 'regions/show'
-
-  get 'regions/new'
-
-  get 'regions/create'
-
-  get 'regions/edit'
-
-  get 'regions/update'
-
-  get 'boardposts/index'
-
-  get 'boardposts/show'
-
-  get 'boardposts/new'
-
-  get 'boardposts/create'
-
-  get 'boardposts/edit'
-
-  get 'boardposts/update'
-
-  get 'comments/index'
-
-  get 'comments/show'
-
-  get 'comments/new'
-
-  get 'comments/create'
-
-  get 'comments/edit'
-
-  get 'comments/update'
-
-  get 'posts/index'
-
-  get 'posts/show'
-
-  get 'posts/new'
-
-  get 'posts/create'
-
-  get 'posts/edit'
-
-  get 'posts/update'
-
-  get 'journals/index'
-
-  get 'journals/show'
-
-  get 'journals/new'
-
-  get 'journals/create'
-
-  get 'journals/edit'
-
-  get 'journals/update'
-
-  get 'users/index'
-
-  get 'users/show'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/edit'
-
-  get 'users/destroy'
-
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'home/home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -102,7 +13,20 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    resources :users
+    resources :regions
+    
+    resources :countries, except: :show
+    # get 'countries/:name', to: 'countries#show'
+    
+    resources :boardposts
+    
+    resources :journals
+        
+    resources :posts do
+      resources :comments
+    end
+    
 
   # Example resource route with options:
   #   resources :products do

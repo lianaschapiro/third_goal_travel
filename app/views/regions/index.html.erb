@@ -1,2 +1,7 @@
-<h1>Regions#index</h1>
-<p>Find me in app/views/regions/index.html.erb</p>
+<h1>Where are you going?</h1>
+	<img id="world_map" src="images/worldmap.jpg">
+
+	<% @regions.each do |r| %>
+		<br>
+		<%= link_to r.name, region_path(r) %>
+	<% end %>
