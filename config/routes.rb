@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :users
     resources :regions
-    
-    resources :countries, except: :show
+    resources :countries
+    # resources :countries, except: :show
     # get 'countries/:name', to: 'countries#show'
     
     resources :boardposts
