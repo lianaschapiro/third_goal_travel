@@ -1,5 +1,6 @@
 <h1><%= @region.name %></h1>
 
 	<% @countries.each do |c| %>
-
+		<%= link_to c.name, country_path(c) %>
+		<br>
 	<% end %>
