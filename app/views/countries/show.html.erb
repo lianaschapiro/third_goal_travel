@@ -1,2 +1,25 @@
-<h1>Countries#show</h1>
-<p>Find me in app/views/countries/show.html.erb</p>
+<h1><%= @country.name %></h1>
+
+<div id="country_pic">
+	<img src="/images/<%= @country.url_name%>.jpg">
+</div><div id="message_board">
+	<h3>Message Board</h3>
+		<button id="post">POST</button>
+		<% @boardposts.each do |b| %>
+		<div id="individual_boardposts">
+			<p><b><%= b.title %></b></p>
+			<p><%= b.body %></p>
+		</div>
+		<% end %>
+</div>
+
+<div id="volunteer_journals">
+	<h3>Volunteer Journals</h3>
+		<% @journals.each do |j| %>
+		<div id="individual_journals">
+			<p><%= link_to j.title, j.link %></p>
+			<p>Author: <%= j.author %></p>
+			<%= j.description %>
+		</div>
+		<% end %>
+</div>
