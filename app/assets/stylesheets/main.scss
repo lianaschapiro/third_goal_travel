@@ -3,9 +3,7 @@
 	padding: 0;
 }
 
-h1 {
-	padding: 1% 2%;
-}
+
 
 h3 {
 	display: inline-block;
@@ -13,6 +11,10 @@ h3 {
 
 #world_map {
 	height: 500px;
+}
+
+#country_name {
+	padding: 1% 2%;
 }
 
 #country_pic {
@@ -32,7 +34,7 @@ h3 {
 	background-color: lightblue;
 	display: inline-block;
 	min-height: 325px;
-	overflow: scroll;
+	overflow: auto;
 	padding: 2%;
 	margin: 0 1% 0;
 }
@@ -41,6 +43,9 @@ h3 {
 	float: right;
 	width: 50px;
 	height: 30px;
+}
+
+#boardposts {
 }
 
 #individual_boardposts {
