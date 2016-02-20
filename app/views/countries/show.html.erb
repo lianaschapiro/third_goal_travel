@@ -1,16 +1,18 @@
-<h1><%= @country.name %></h1>
+<h1 id="country_name"><%= @country.name %></h1>
 
 <div id="country_pic">
 	<img src="/images/<%= @country.url_name%>.jpg">
 </div><div id="message_board">
 	<h3>Message Board</h3>
 		<button id="post">POST</button>
-		<% @boardposts.each do |b| %>
-		<div id="individual_boardposts">
-			<p><b><%= b.title %></b></p>
-			<p><%= b.body %></p>
+		<div id="boardposts">
+			<% @boardposts.each do |b| %>
+			<div id="individual_boardposts">
+				<p><b><%= b.title %></b></p>
+				<p><%= b.body %></p>
+			</div>
+			<% end %>
 		</div>
-		<% end %>
 </div>
 
 <div id="volunteer_journals">
