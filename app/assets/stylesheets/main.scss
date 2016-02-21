@@ -3,7 +3,13 @@
 	padding: 0;
 }
 
+body {
+	background-color: #f1f1f1;
+}
 
+a {
+	text-decoration: none;
+}
 
 h3 {
 	display: inline-block;
@@ -13,8 +19,31 @@ h3 {
 	height: 500px;
 }
 
+#region_name {
+	padding: 1% 0%;
+	text-align: center;
+	// text-transform: uppercase;
+}
+
+#all_countries {
+	margin: 0 auto;
+	width: 95%;
+	font-size: 0px;
+	text-align: center;
+}
+.individual_countries {
+	width: 19%;
+	min-width: 200px;
+	margin: .5%;
+	display: inline-block;
+	img {
+		width: 100%;
+	}
+}
+
 #country_name {
 	padding: 1% 2%;
+	// text-transform: uppercase;
 }
 
 #country_pic {

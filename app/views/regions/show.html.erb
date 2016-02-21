@@ -1,6 +1,10 @@
-<h1><%= @region.name %></h1>
-
-	<% @countries.each do |c| %>
-		<%= link_to c.name, country_path(c) %>
-		<br>
-	<% end %>
+<h1 id="region_name"><%= @region.name %></h1>
+	<div id="all_countries">
+		<% @countries.each do |c| %>
+			<div class="individual_countries">
+				<a href="<%= country_path(c) %>"><img src="/images/<%= c.url_name %>.jpg"> </a>
+				<br>
+			</div>
+		<% end %>
+	</div>
+		

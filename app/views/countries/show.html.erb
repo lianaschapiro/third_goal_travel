@@ -17,6 +17,22 @@
 
 <div id="volunteer_journals">
 	<h3>Volunteer Journals</h3>
+		<p>Add a new journal for <%= @country.name %></p>
+		
+		<%= form_for @journal do |j| %>
+			<%= j.label :title %>
+			<%= j.text_field :title %>
+			<%= j.label :description %>
+			<%= j.text_field :description %>
+			<br>
+			<%= j.label :link %>
+			<%= j.text_field :link %>
+			<%= j.label :author %>
+			<%= j.text_field :author %>
+			<%= j.submit value: "Add" %>
+		<% end %>
+
+
 		<% @journals.each do |j| %>
 		<div id="individual_journals">
 			<p><%= link_to j.title, j.link %></p>

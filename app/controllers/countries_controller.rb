@@ -4,6 +4,7 @@ class CountriesController < ApplicationController
 
   def show
     set_country
+    @journal = Journal.new
     @journals = @country.journals.order("created_at DESC")
     @boardposts = @country.boardposts.order("created_at DESC")
   end
@@ -12,6 +13,7 @@ class CountriesController < ApplicationController
   end
 
   def create
+    
   end
 
   def edit
@@ -21,6 +23,8 @@ class CountriesController < ApplicationController
   end
 
   private
+
+ 
 
   def set_country
     @country = Country.find_by(url_name: params[:id])
