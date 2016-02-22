@@ -1,10 +1,58 @@
+$default-green: #588C7E;
+$default-light-yellow: #F2E394;
+$default-orange: #F2AE72;
+$default-light-red: #D96459;
+$default-red: #8C4646;
+
 * {
 	margin: 0;
 	padding: 0;
+	font-family: 'Roboto', sans-serif;
 }
 
 body {
 	background-color: #f1f1f1;
+}
+
+#wrapper {
+	margin-top: 50px;
+	text-align: center;
+}
+
+nav {
+	height: 50px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	background-color: $default-light-yellow;
+	ul {
+		img {
+			margin: 6px;
+			height: 35px;
+		}
+		li {
+			display: inline-block;
+			margin: 15px;
+			font-weight: bold
+		}
+		a {
+			color: black;
+		}
+	}
+}
+
+#title {
+	margin-left: 5px;
+	font-size: 20px;
+	font-style: italic;	
+	}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
 }
 
 a {
@@ -19,36 +67,48 @@ h3 {
 	height: 500px;
 }
 
-#region_name {
+h1 {
 	padding: 1% 0%;
 	text-align: center;
-	// text-transform: uppercase;
 }
 
-#all_countries {
-	margin: 0 auto;
-	width: 95%;
-	font-size: 0px;
-	text-align: center;
-}
 .individual_countries {
-	width: 19%;
+	position: relative;
+	width: 18%;
 	min-width: 200px;
 	margin: .5%;
 	display: inline-block;
 	img {
 		width: 100%;
 	}
+	#individual_country_name {
+	  	position: absolute;
+	  	padding-top: 80px;
+	  	top: 0;
+	  	bottom: 0;
+	  	left: 0;
+	  	right: 0;
+	  	color: black;
+	 	background: rgba(255,255,255,.6);
+	 	visibility: hidden;
+	  	opacity: 0;
+	}
+	
 }
 
+.individual_countries:hover #individual_country_name {
+  		visibility: visible;
+  		opacity: 1;
+	}
+
 #country_name {
-	padding: 1% 2%;
-	// text-transform: uppercase;
+	text-align: left;
+	padding: 1% 2.5%;
 }
 
 #country_pic {
 	display: inline-block;
-	background-color: lightyellow;
+	background-color: $default-light-yellow;
 	width: 26%;
 	margin: 0% 1% 2% 2%;
 	img {
@@ -59,6 +119,7 @@ h3 {
 }
 
 #message_board {
+	text-align: left;
 	width: 64%;
 	background-color: lightblue;
 	display: inline-block;
@@ -66,22 +127,22 @@ h3 {
 	overflow: auto;
 	padding: 2%;
 	margin: 0 1% 0;
-}
-
-#post {
+	#post {
 	float: right;
 	width: 50px;
 	height: 30px;
-}
-
-#boardposts {
-}
-
-#individual_boardposts {
+	background-color: white;
+	}
+	#boardposts {
+		#individual_boardposts {
 	margin: 15px 0px;
 	padding: 5px;
 	background-color: white;
+		}		
+	}
 }
+
+
 
 #volunteer_journals {
 	background-color: pink;
@@ -91,5 +152,34 @@ h3 {
 }
 
 #individual_journals {
-	@extend #individual_boardposts;
+	margin: 15px 0px;
+	padding: 5px;
+	background-color: white;
 }
+
+#outer_boardpost_modal {
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 999997;
+    display: none;
+    #inner_boardpost_modal {
+    	width: 70%;
+    	height: 85%;
+    	background-color:$default-light-yellow;
+    	box-shadow: 0 0 15px #9e9e9e;
+    	border: #cecece solid 1px;
+    	margin: auto;
+    	margin-top: 3%;
+    	overflow: auto;
+        z-index: 999999;
+        #close_boardpost_modal {
+
+        }
+    }
+}
+
+
+

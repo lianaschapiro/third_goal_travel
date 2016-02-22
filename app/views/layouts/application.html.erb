@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ThirdGoalTravel</title>
+  <title>Third Goal Travel</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav>
+		<ul>
+			<img class="left" src="/images/facebook.png">
+			<img class="left" src="/images/instagram.png">
+			<img class="left" src="/images/twitter.png">
+			<!-- <li class="left" id="title">Third Goal Travel</li> -->
+		</ul>
+		<ul class="right">
+			<li><a href="#">THING1</a></li>
+			<li><a href="#">THING2</a></li>
+			<li><a href="#">THING3</a></li>
+		</ul>
+	</nav>
 
-<%= yield %>
+	<div id="wrapper">
+		<%= yield %>
+	</div>
+
 
 </body>
 </html>

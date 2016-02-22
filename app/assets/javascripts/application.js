@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+function openBoardpostModal() {
+  $('#outer_boardpost_modal').fadeIn(200);
+}
+
+
+function closeBoardpostModal() {
+  $('#outer_boardpost_modal').fadeOut(200);
+}
