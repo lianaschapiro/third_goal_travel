@@ -21,8 +21,6 @@
 <div id="volunteer_journals">
 	<h3>Volunteer Journals</h3>
 		<p>Add a new journal for <%= @country.name %></p>
-		
-		<%#= render partial: "journals/new", locals:{journal: @journal} %>
 
 		<%= form_for [@country, @journal] do |j| %>
 			<%= j.label :title %>
@@ -51,7 +49,7 @@
 	<div id="inner_boardpost_modal">
 		<h1>Post on the Message Board</h1>
 			<p id="close_boardpost_modal" class="right" onclick="closeBoardpostModal()">X</p>
-			<%#= render partial: 'boardposts/new', locals:{boardpost: @boardpost} %> 
+			
 			<%= form_for [@country, @boardpost] do |j| %>
 				<%= j.label :title %>
 				<%= j.text_field :title %>

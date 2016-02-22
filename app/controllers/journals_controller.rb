@@ -25,6 +25,17 @@ class JournalsController < ApplicationController
   def update
   end
 
+  def destroy
+    @journal = Journal.find(params[:id])
+    @country = @journal.country
+    if @journal.destroy
+      flash[:notice] = "Journal removed"
+    else
+      flash[:notice] = "Unable to remove journal"
+    end
+    redirect_to country_path(@country)
+  end
+
   private
 
   def journal_params
