@@ -12,6 +12,7 @@
 			<div id="individual_boardposts">
 				<p><b><%= b.title %></b></p>
 				<p><%= b.body %></p>
+				<button><%= link_to "Delete Post", [b.country, b], method: :delete %></button>
 			</div>
 			<% end %>
 		</div>
@@ -21,7 +22,9 @@
 	<h3>Volunteer Journals</h3>
 		<p>Add a new journal for <%= @country.name %></p>
 		
-		<%= form_for @journal do |j| %>
+		<%#= render partial: "journals/new", locals:{journal: @journal} %>
+
+		<%= form_for [@country, @journal] do |j| %>
 			<%= j.label :title %>
 			<%= j.text_field :title %>
 			<%= j.label :description %>
@@ -34,27 +37,27 @@
 			<%= j.submit value: "Add" %>
 		<% end %>
 
-
 		<% @journals.each do |j| %>
 		<div id="individual_journals">
 			<p><%= link_to j.title, j.link %></p>
 			<p>Author: <%= j.author %></p>
 			<%= j.description %>
+
 		</div>
 		<% end %>
 </div>
-
 
 <div id="outer_boardpost_modal">
 	<div id="inner_boardpost_modal">
 		<h1>Post on the Message Board</h1>
 			<p id="close_boardpost_modal" class="right" onclick="closeBoardpostModal()">X</p>
-				<%= form_for @boardpost do |j| %>
-					<%= j.label :title %>
-					<%= j.text_field :title %>
-					<%= j.label :body %>
-					<%= j.text_field :body %>
-					<%= j.submit value: "Post" %>
-				<% end %>
+			<%#= render partial: 'boardposts/new', locals:{boardpost: @boardpost} %> 
+			<%= form_for [@country, @boardpost] do |j| %>
+				<%= j.label :title %>
+				<%= j.text_field :title %>
+				<%= j.label :body %>
+				<%= j.text_field :body %>
+				<%= j.submit value: "Post" %>
+			<% end %>
 	</div>
 </div>
