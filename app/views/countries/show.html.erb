@@ -2,9 +2,11 @@
 
 <div id="country_pic">
 	<img src="/images/<%= @country.url_name%>.jpg">
-</div><div id="message_board">
+</div>
+
+<div id="message_board">
 	<h3>Message Board</h3>
-		<button id="post">POST</button>
+		<button id="post" onclick="openBoardpostModal()">POST</button>
 		<div id="boardposts">
 			<% @boardposts.each do |b| %>
 			<div id="individual_boardposts">
@@ -40,4 +42,19 @@
 			<%= j.description %>
 		</div>
 		<% end %>
+</div>
+
+
+<div id="outer_boardpost_modal">
+	<div id="inner_boardpost_modal">
+		<h1>Post on the Message Board</h1>
+			<p id="close_boardpost_modal" class="right" onclick="closeBoardpostModal()">X</p>
+				<%= form_for @boardpost do |j| %>
+					<%= j.label :title %>
+					<%= j.text_field :title %>
+					<%= j.label :body %>
+					<%= j.text_field :body %>
+					<%= j.submit value: "Post" %>
+				<% end %>
+	</div>
 </div>

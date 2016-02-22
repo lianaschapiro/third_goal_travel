@@ -6,6 +6,7 @@ class CountriesController < ApplicationController
     set_country
     @journal = Journal.new
     @journals = @country.journals.order("created_at DESC")
+    @boardpost = Boardpost.new
     @boardposts = @country.boardposts.order("created_at DESC")
   end
 
