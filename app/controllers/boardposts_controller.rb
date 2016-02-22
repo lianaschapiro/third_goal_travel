@@ -9,9 +9,9 @@ class BoardpostsController < ApplicationController
   end
 
   def create
-    @country = Country.find_by(url_name: params[:id])
+    @country = Country.find_by(url_name: params[:country_id])
     @boardpost = @country.boardposts.build(boardpost_params)
-    @boardpost.user = current_user
+    # @boardpost.user_id = current_user.id
     if @boardpost.save
       flash[:notice] = "Boardpost added"
     else
@@ -19,12 +19,19 @@ class BoardpostsController < ApplicationController
     end
     redirect_to country_path(@country)
   end
-  end
+
 
   def edit
   end
 
   def update
+  end
+
+  def destroy
+    @boardpost = Boardpost.find(params[:id])
+    @country = @boardpost.country
+    @boardpost.destroy
+    redirect_to country_path(@country)
   end
 
   private

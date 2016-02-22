@@ -1,0 +1,7 @@
+<%= form_for [@country, @boardpost] do |j| %>
+	<%= j.label :title %>
+	<%= j.text_field :title %>
+	<%= j.label :body %>
+	<%= j.text_field :body %>
+	<%= j.submit value: "Post" %>
+<% end %>

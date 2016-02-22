@@ -83,7 +83,7 @@ h1 {
 	}
 	#individual_country_name {
 	  	position: absolute;
-	  	padding-top: 80px;
+	  	padding-top: 85px;
 	  	top: 0;
 	  	bottom: 0;
 	  	left: 0;
@@ -99,6 +99,7 @@ h1 {
 .individual_countries:hover #individual_country_name {
   		visibility: visible;
   		opacity: 1;
+  		transition: 0.2s ease-in;
 	}
 
 #country_name {

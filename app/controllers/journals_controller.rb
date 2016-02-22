@@ -9,15 +9,9 @@ class JournalsController < ApplicationController
   end
 
   def create
-    # @boat = Boat.find(params[:boat_id])
-    # @job = @boat.jobs.build(job_params)
-    # @job.user = current_user
-    @journal = Journal.new(journal_params)
-    @country = Country.find_by(url_name: params[:id])
-    # @journal = @country.journals.build(journal_params)
-
+    @country = Country.find_by_url_name(params[:country_id])
+    @journal = @country.journals.build(journal_params)
     if @journal.save
-      @country = @journal.country
       flash[:notice] = "Journal added"
     else
       flash[:notice] = "Unable to add journal"
