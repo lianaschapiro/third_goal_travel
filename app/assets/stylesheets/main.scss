@@ -25,6 +25,7 @@ nav {
 	position: fixed;
 	top: 0;
 	background-color: $default-light-yellow;
+	z-index: 10;
 	ul {
 		img {
 			margin: 6px;
