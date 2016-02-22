@@ -94,7 +94,6 @@ h1 {
 	 	visibility: hidden;
 	  	opacity: 0;
 	}
-	
 }
 
 .individual_countries:hover #individual_country_name {
@@ -106,6 +105,12 @@ h1 {
 #country_name {
 	text-align: left;
 	padding: 1% 2.5%;
+}
+
+
+#googleMap {
+	width: 700px;
+	height: 500px;
 }
 
 #country_pic {
