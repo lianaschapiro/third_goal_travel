@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Third Goal Travel</title>
-  <script src="http://maps.googleapis.com/maps/api/js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<nav>
-		<ul>
-			<img class="left" src="/images/facebook.png">
-			<img class="left" src="/images/instagram.png">
-			<img class="left" src="/images/twitter.png">
-		</ul>
-		<ul class="right">
-			<li><a href="#">THING1</a></li>
-			<li><a href="#">THING2</a></li>
-			<li><a href="#">THING3</a></li>
-		</ul>
-	</nav>
+	<head>
+	  <title>Third Goal Travel</title>
+	  <script src="http://maps.googleapis.com/maps/api/js"></script>
+	  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<img class="left" src="/images/facebook.png">
+				<img class="left" src="/images/instagram.png">
+				<img class="left" src="/images/twitter.png">
+			</ul>
+			<ul class="right">
+				<li><a href="#">THING1</a></li>
+				<li><a href="#">THING2</a></li>
+				<li><a href="#">THING3</a></li>
+			</ul>
+		</nav>
 
-	<div id="wrapper">
-		<%= yield %>
-	</div>
+		<div id="wrapper">
+			<%= yield %>
+		</div>
 
-	<script type="text/javascript">
-		initialize();
-	</script>
+			<script type="text/javascript">
+				initialize();
+			</script>
 
-</body>
+	</body>
 </html>

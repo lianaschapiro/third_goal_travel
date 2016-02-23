@@ -1,12 +1,18 @@
 <h1 id="country_name"><%= @country.name %></h1>
 
+	<div id="googleMap"></div>
 
-
-<div id="googleMap"></div>
-
-
-
-
+	<script type="text/javascript">
+		function initialize() {
+			var mapProp = {
+				center:new google.maps.LatLng(<%= @country.latitude%>, <%= @country.longitude%>),
+	    		zoom:7,
+			    mapTypeId:google.maps.MapTypeId.ROADMAP
+			  };
+	  		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 
 
 <div id="country_pic">

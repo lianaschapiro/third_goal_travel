@@ -2,11 +2,15 @@
 
 	<% @countries.each do |c| %>
 		<div class="individual_countries">
-			<a href="<%= country_path(c) %>"><img src="/images/<%= c.url_name %>.jpg">
+			<a id="country_location" href="<%= country_path(c) %>">
+				<img class="<%=c.name%>" src="/images/<%= c.url_name %>.jpg">
 			<h1 id="individual_country_name"><%= c.name %></h1>
 			 </a>
 			<br>
 		</div>
 	<% end %>
+
+
+
 
 		
