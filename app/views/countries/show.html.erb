@@ -1,76 +1,81 @@
 <h1 id="country_name"><%= @country.name %></h1>
 
+	<!-- This is the country map -->
 	<div id="googleMap"></div>
+		<script type="text/javascript">
+			function initialize() {
+				var mapProp = {
+					center:new google.maps.LatLng(<%= @country.latitude%>, <%= @country.longitude%>),
+		    		zoom:7,
+				    mapTypeId:google.maps.MapTypeId.ROADMAP
+				  };
+		  		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+			}
+			initialize ();
+		</script>
 
-	<script type="text/javascript">
-		function initialize() {
-			var mapProp = {
-				center:new google.maps.LatLng(<%= @country.latitude%>, <%= @country.longitude%>),
-	    		zoom:7,
-			    mapTypeId:google.maps.MapTypeId.ROADMAP
-			  };
-	  		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-		}
-		google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
 
 
-<div id="country_pic">
-	<img src="/images/<%= @country.url_name%>.jpg">
-</div>
 
-<div id="message_board">
-	<h3>Message Board</h3>
-		<button id="post" onclick="openBoardpostModal()">POST</button>
-		<div id="boardposts">
-			<% @boardposts.each do |b| %>
-			<div id="individual_boardposts">
-				<p><b><%= b.title %></b></p>
-				<p><%= b.body %></p>
-				<button><%= link_to "Delete Post", [b.country, b], method: :delete %></button>
+
+
+	<div id="country_pic">
+		<img src="/images/<%= @country.url_name%>.jpg">
+	</div>
+
+	<!-- Message Board -->
+	<div id="message_board">
+		<h3>Message Board</h3>
+			<button id="post" onclick="openBoardpostModal()">POST</button>
+			<div id="boardposts">
+				<% @boardposts.each do |b| %>
+				<div id="individual_boardposts">
+					<p><b><%= b.title %></b></p>
+					<p><%= b.body %></p>
+					<button><%= link_to "Delete Post", [b.country, b], method: :delete %></button>
+				</div>
+				<% end %>
 			</div>
-			<% end %>
-		</div>
-</div>
+	</div>
 
-<div id="volunteer_journals">
-	<h3>Volunteer Journals</h3>
-		<p>Add a new journal for <%= @country.name %></p>
+	<div id="volunteer_journals">
+		<h3>Volunteer Journals</h3>
+			<p>Add a new journal for <%= @country.name %></p>
 
-		<%= form_for [@country, @journal] do |j| %>
-			<%= j.label :title %>
-			<%= j.text_field :title %>
-			<%= j.label :description %>
-			<%= j.text_field :description %>
-			<br>
-			<%= j.label :link %>
-			<%= j.text_field :link %>
-			<%= j.label :author %>
-			<%= j.text_field :author %>
-			<%= j.submit value: "Add" %>
-		<% end %>
-
-		<% @journals.each do |j| %>
-		<div id="individual_journals">
-			<p><%= link_to j.title, j.link %></p>
-			<p>Author: <%= j.author %></p>
-			<%= j.description %>
-
-		</div>
-		<% end %>
-</div>
-
-<div id="outer_boardpost_modal">
-	<div id="inner_boardpost_modal">
-		<h1>Post on the Message Board</h1>
-			<p id="close_boardpost_modal" class="right" onclick="closeBoardpostModal()">X</p>
-			
-			<%= form_for [@country, @boardpost] do |j| %>
+			<%= form_for [@country, @journal] do |j| %>
 				<%= j.label :title %>
 				<%= j.text_field :title %>
-				<%= j.label :body %>
-				<%= j.text_field :body %>
-				<%= j.submit value: "Post" %>
+				<%= j.label :description %>
+				<%= j.text_field :description %>
+				<br>
+				<%= j.label :link %>
+				<%= j.text_field :link %>
+				<%= j.label :author %>
+				<%= j.text_field :author %>
+				<%= j.submit value: "Add" %>
+			<% end %>
+
+			<% @journals.each do |j| %>
+			<div id="individual_journals">
+				<p><%= link_to j.title, j.link %></p>
+				<p>Author: <%= j.author %></p>
+				<%= j.description %>
+
+			</div>
 			<% end %>
 	</div>
-</div>
+
+	<div id="outer_boardpost_modal">
+		<div id="inner_boardpost_modal">
+			<h1>Post on the Message Board</h1>
+				<p id="close_boardpost_modal" class="right" onclick="closeBoardpostModal()">X</p>
+				
+				<%= form_for [@country, @boardpost] do |j| %>
+					<%= j.label :title %>
+					<%= j.text_field :title %>
+					<%= j.label :body %>
+					<%= j.text_field :body %>
+					<%= j.submit value: "Post" %>
+				<% end %>
+		</div>
+	</div>
