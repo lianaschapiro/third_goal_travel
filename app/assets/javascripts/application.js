@@ -31,8 +31,8 @@ function geocodeAddress(geocoder, resultsMap, address) {
       document.getElementById("post_latitude").setAttribute("value", post_lat); 
       document.getElementById("post_longitude").setAttribute("value", post_lng);
       document.getElementById("post_address").setAttribute("value", address);
-      console.log(post_lat)
-      console.log(post_lng)
+      console.log(post_lat);
+      console.log(post_lng);
       // changes address search button to say "Address Found!"
       // document.getElementById("submit").setAttribute("value", "Address Found!");
       // changes address search button text back to "Search"
@@ -45,8 +45,8 @@ function geocodeAddress(geocoder, resultsMap, address) {
 }
 
 
-
 // Creating Message board posts
+
 function openBoardpostModal() {
   $('#outer_boardpost_modal').fadeIn(200);
 }

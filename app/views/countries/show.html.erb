@@ -23,7 +23,7 @@
 		<% end %>
 	</div>
 
-	<!-- All posts -->
+<!-- All posts -->
 	<% @posts.each do |p| %>
 		Title: <%= p.title %>
 		<br>
@@ -34,27 +34,26 @@
 	<% end %>
 	<br>
 
+		<div id="country_pic">
+		<img src="/images/<%= @country.url_name%>.jpg">
+	</div>
 
-
-<div id="country_pic">
-	<img src="/images/<%= @country.url_name%>.jpg">
-</div>
-
-<div id="message_board">
-	<h3>Message Board</h3>
-		<button id="post" onclick="openBoardpostModal()">POST</button>
-		<div id="boardposts">
-			<% @boardposts.each do |b| %>
-			<div id="individual_boardposts">
-				<p><b><%= b.title %></b></p>
-				<p><%= b.body %></p>
-				<button><%= link_to "Delete Post", [b.country, b], method: :delete %></button>
+	<!-- Message Board -->
+	<div id="message_board">
+		<h3>Message Board</h3>
+			<button id="post" onclick="openBoardpostModal()">POST</button>
+			<div id="boardposts">
+				<% @boardposts.each do |b| %>
+				<div id="individual_boardposts">
+					<p><b><%= b.title %></b></p>
+					<p><%= b.body %></p>
+					<button><%= link_to "Delete Post", [b.country, b], method: :delete %></button>
+				</div>
+				<% end %>
 			</div>
-			<% end %>
 		</div>
-</div>
-
-<div id="volunteer_journals">
+	
+	<div id="volunteer_journals">
 	<h3>Volunteer Journals</h3>
 		<p>Add a new journal for <%= @country.name %></p>
 
@@ -72,35 +71,59 @@
 		<% end %>
 
 		<% @journals.each do |j| %>
-		<div id="individual_journals">
-			<p><%= link_to j.title, j.link %></p>
-			<p>Author: <%= j.author %></p>
-			<%= j.description %>
-
-		</div>
+			<div id="individual_journals">
+				<p><%= link_to j.title, j.link %></p>
+				<p>Author: <%= j.author %></p>
+				<%= j.description %>
+			</div>
 		<% end %>
 </div>
 
 <div id="outer_boardpost_modal">
-	<div id="inner_boardpost_modal">
-		<h1>Post on the Message Board</h1>
-			<p id="close_boardpost_modal" class="right" onclick="closeBoardpostModal()">X</p>
-			
-			<%= form_for [@country, @boardpost] do |j| %>
+		<div id="inner_boardpost_modal">
+			<h1>Post on the Message Board</h1>
+				<p id="close_boardpost_modal" class="right" onclick="closeBoardpostModal()">X</p>
+				
+				<%= form_for [@country, @boardpost] do |j| %>
+					<%= j.label :title %>
+					<%= j.text_field :title %>
+					<%= j.label :body %>
+					<%= j.text_field :body %>
+					<%= j.submit value: "Post" %>
+				<% end %>
+		</div>
+	</div>
+
+	<div id="volunteer_journals">
+		<h3>Volunteer Journals</h3>
+			<p>Add a new journal for <%= @country.name %></p>
+
+			<%= form_for [@country, @journal] do |j| %>
 				<%= j.label :title %>
 				<%= j.text_field :title %>
-				<%= j.label :body %>
-				<%= j.text_field :body %>
-				<%= j.submit value: "Post" %>
+				<%= j.label :description %>
+				<%= j.text_field :description %>
+				<br>
+				<%= j.label :link %>
+				<%= j.text_field :link %>
+				<%= j.label :author %>
+				<%= j.text_field :author %>
+				<%= j.submit value: "Add" %>
+			<% end %>
+
+			<% @journals.each do |j| %>
+				<div id="individual_journals">
+					<p><%= link_to j.title, j.link %></p>
+					<p>Author: <%= j.author %></p>
+					<%= j.description %>
+				</div>
 			<% end %>
 	</div>
-</div>
 
-<% @posts.each do |r| %>
-		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' >
+	<% @posts.each do |r| %>
+		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>'>
 		</div>
 	<% end %>
-</div>
 
 <script type="text/javascript">
 			function initialize() {
@@ -119,6 +142,7 @@
 			  var marker = new google.maps.Marker({
 			    // position:myCenter,
 			  });
+
 
 			  // Zooms in on marker click
 			  google.maps.event.addListener(marker,'click',function() {
@@ -149,13 +173,13 @@
 			  var things = document.getElementsByClassName('load_all_markers');
 
 			  // gets the length of load_all_markers
-			  var length = document.getElementsByClassName('load_all_markers').length
+			  var length = document.getElementsByClassName('load_all_markers').length;
 
 			    
 			  var arr = [];
-			  var arrTitle = []
-			  var arrBody = []
-			  var arrDetails = []
+			  var arrTitle = [];
+			  var arrBody = [];
+			  var arrDetails = [];
 			  // iterates through var things (array) and adds stuff to empty arrays (dataset.thang refers to html attributte data-thang)
 			  for (var i = 0; i < length; i++){
 			    arr.push(things[i].dataset.thang);
@@ -186,9 +210,10 @@
 			      var infoWindow = new google.maps.InfoWindow({
 			          content: "<b>" + title + "</b><br><br>" + body + details
 			      });
+			      //
 			      google.maps.event.addListener(marker, 'click', function () {
 			          infoWindow.open(map, this);
-			          map.setZoom(17);
+			          map.setZoom(15);
 			          map.setCenter(marker.getPosition());
 			      });
 			    }
@@ -200,4 +225,3 @@
 			}
 			initialize();
 		</script>
-
