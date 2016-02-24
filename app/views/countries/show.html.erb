@@ -101,7 +101,7 @@
 
 
 	<% @posts.each do |r| %>
-		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>'>
+		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "...", country_post_path(r.country, r) %>'>
 		</div>
 	<% end %>
 
