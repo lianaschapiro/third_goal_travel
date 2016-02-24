@@ -10,15 +10,24 @@
 	</head>
 	<body>
 		<nav>
-			<ul>
-				<img class="left" src="/images/facebook.png">
-				<img class="left" src="/images/instagram.png">
-				<img class="left" src="/images/twitter.png">
+			<ul class="left">
+				<img src="/images/facebook.png">
+				<img src="/images/instagram.png">
+				<img src="/images/twitter.png">
 			</ul>
+			
 			<ul class="right">
 				<li><a href="#">THING1</a></li>
 				<li><a href="#">THING2</a></li>
 				<li><a href="#">THING3</a></li>
+			</ul>
+			<ul style="text-align:center;margin-left: 17%">
+				<% if @country %>
+				<h1 ><%= @country.name %></h1>
+				<% end %>
+				<% if @region %>
+				<h1 ><%= @region.name %></h1>
+				<% end %>
 			</ul>
 		</nav>
 
