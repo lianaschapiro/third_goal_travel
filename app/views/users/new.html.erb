@@ -1,2 +1,20 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Sign Up</h1>
+
+<% if @user.errors.full_messages.any? %>
+	<ul>
+		<% @user.errors.full_messages.each do |e| %>
+			<li> <%= e %></li>
+			<li><br></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for @user, :html => { :multipart => true } do |f| %>
+	<h3><%=f.label :email %></h3>
+	<%=f.email_field :email %>
+	<br><br>
+	<h3><%=f.label :password %></h3>
+	<%=f.password_field :password %>
+	<br><br><br>
+	<%=f.submit %>
+<% end %>
