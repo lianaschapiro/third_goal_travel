@@ -1,11 +1,6 @@
 class JournalsController < ApplicationController
   def index
-  end
-
-  def show
-  end
-
-  def new
+    @journals = Journal.all
   end
 
   def create
@@ -17,12 +12,6 @@ class JournalsController < ApplicationController
       flash[:notice] = "Unable to add journal"
     end
     redirect_to country_path(@country)
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def destroy
