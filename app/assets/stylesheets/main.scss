@@ -100,11 +100,18 @@ h1 {
   		visibility: visible;
   		opacity: 1;
   		transition: 0.2s ease-in;
-	}
+}
 
-#country_name {
-	text-align: left;
-	padding: 1% 2.5%;
+#map {
+	width: 50%;
+	height: 550px;
+	display: inline-block;
+}
+
+#new_post {
+	display: inline-block;
+	width: 50%;
+	background-color: orange;
 }
 
 
