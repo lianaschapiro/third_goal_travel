@@ -1,14 +1,13 @@
-<h1><%= @country.name %></h1>
-
-	<!-- This is the country map -->
+<!-- This is the country map -->
 	<div id="map"></div>
 
-	<div id="new_post">
-		<form id="search">
-			<label>Address</label>
-			<input id="address" type="textbox" placeholder="Search by address">
-	 		<input id="submit" type="submit" value="Search">
-	 	</form>
+	<div id="post_wrapper">
+		<h3>Add a Review</h3>
+			<form id="search">
+				<label>Address</label>
+				<input id="address" type="textbox" placeholder="Search by address">
+		 		<input id="submit" type="submit" value="Search">
+		 	</form>
 	
 		<!--  Create a new post -->
 		<%= form_for [@country, @post] do |f| %>
@@ -16,42 +15,28 @@
 			<%= f.text_field :title %>
 			<%= f.label :body %>
 			<%= f.text_field :body %>
-			<%= f.hidden_field :latitude %>
-			<%= f.hidden_field :longitude %>
-			<%= f.hidden_field :address %>
+			<%= f.text_field :latitude %>
+			<%= f.text_field :longitude %>
+			<%= f.text_field :address %>
+			<%= f.label "What is this?"%>
+			<%= f.select :post_type, Post.post_types.keys, prompt: :select %>
 			<%= f.submit %>
 		<% end %>
-	</div>
+	
 
-<!-- All posts -->
-	<% @posts.each do |p| %>
-		Title: <%= p.title %>
+		<!-- All posts -->
+		<h3>Reviews</h3>
+		<% @posts.each do |p| %>
+			Title: <%= p.title %>
+			<p>Type: <%=p.post_type %> </p>
+			<p>Description: <%= p.body %></p>
+			<p>Address: <%= p.address %></p>
+
+			<hr>
+		<% end %>
 		<br>
-		Description: <%= p.body %>
-		<br>
-		Address: <%= p.address %>
-		<hr>
-	<% end %>
-	<br>
-
-	<div id="country_pic">
-		<img src="/images/<%= @country.url_name%>.jpg">
 	</div>
 
-	<!-- Message Board -->
-	<div id="message_board">
-		<h3>Message Board</h3>
-			<button id="post" onclick="openBoardpostModal()">POST</button>
-			<div id="boardposts">
-				<% @boardposts.each do |b| %>
-					<div id="individual_boardposts">
-						<p><b><%= b.title %></b></p>
-						<p><%= b.body %></p>
-						<button><%= link_to "Delete Post", [b.country, b], method: :delete %></button>
-					</div>
-				<% end %>
-			</div>
-	</div>
 	
 	<div id="volunteer_journals">
 		<h3>Volunteer Journals</h3>
@@ -77,6 +62,22 @@
 					<%= j.description %>
 				</div>
 			<% end %>
+	</div>
+
+
+	<!-- Message Board -->
+	<div id="message_board">
+		<h3>Message Board</h3>
+			<button id="post" onclick="openBoardpostModal()">POST</button>
+			<div id="boardposts">
+				<% @boardposts.each do |b| %>
+					<div id="individual_boardposts">
+						<p><b><%= b.title %></b></p>
+						<p><%= b.body %></p>
+						<button><%= link_to "Delete Post", [b.country, b], method: :delete %></button>
+					</div>
+				<% end %>
+			</div>
 	</div>
 
 	<div id="outer_boardpost_modal">
@@ -94,31 +95,10 @@
 		</div>
 	</div>
 
-	<div id="volunteer_journals">
-		<h3>Volunteer Journals</h3>
-			<p>Add a new journal for <%= @country.name %></p>
-
-			<%= form_for [@country, @journal] do |j| %>
-				<%= j.label :title %>
-				<%= j.text_field :title %>
-				<%= j.label :description %>
-				<%= j.text_field :description %>
-				<br>
-				<%= j.label :link %>
-				<%= j.text_field :link %>
-				<%= j.label :author %>
-				<%= j.text_field :author %>
-				<%= j.submit value: "Add" %>
-			<% end %>
-
-			<% @journals.each do |j| %>
-				<div id="individual_journals">
-					<p><%= link_to j.title, j.link %></p>
-					<p>Author: <%= j.author %></p>
-					<%= j.description %>
-				</div>
-			<% end %>
+<div id="country_pic">
+		<img src="/images/<%= @country.url_name%>.jpg">
 	</div>
+
 
 	<% @posts.each do |r| %>
 		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>'>
