@@ -1,4 +1,40 @@
-<h1 id="country_name"><%= @country.name %></h1>
+<h1><%= @country.name %></h1>
+
+	<!-- This is the country map -->
+	<div id="map"></div>
+
+	<div id="new_post">
+		<form id="search">
+			<label>Address</label>
+			<input id="address" type="textbox" placeholder="Search by address">
+	 		<input id="submit" type="submit" value="Search">
+	 	</form>
+	
+		<!--  Create a new post -->
+		<%= form_for [@country, @post] do |f| %>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+			<%= f.label :body %>
+			<%= f.text_field :body %>
+			<%= f.hidden_field :latitude %>
+			<%= f.hidden_field :longitude %>
+			<%= f.hidden_field :address %>
+			<%= f.submit %>
+		<% end %>
+	</div>
+
+	<!-- All posts -->
+	<% @posts.each do |p| %>
+		Title: <%= p.title %>
+		<br>
+		Description: <%= p.body %>
+		<br>
+		Address: <%= p.address %>
+		<hr>
+	<% end %>
+	<br>
+
+
 
 <div id="country_pic">
 	<img src="/images/<%= @country.url_name%>.jpg">
@@ -21,8 +57,6 @@
 <div id="volunteer_journals">
 	<h3>Volunteer Journals</h3>
 		<p>Add a new journal for <%= @country.name %></p>
-		
-		<%#= render partial: "journals/new", locals:{journal: @journal} %>
 
 		<%= form_for [@country, @journal] do |j| %>
 			<%= j.label :title %>
@@ -51,7 +85,7 @@
 	<div id="inner_boardpost_modal">
 		<h1>Post on the Message Board</h1>
 			<p id="close_boardpost_modal" class="right" onclick="closeBoardpostModal()">X</p>
-			<%#= render partial: 'boardposts/new', locals:{boardpost: @boardpost} %> 
+			
 			<%= form_for [@country, @boardpost] do |j| %>
 				<%= j.label :title %>
 				<%= j.text_field :title %>
@@ -61,3 +95,109 @@
 			<% end %>
 	</div>
 </div>
+
+<% @posts.each do |r| %>
+		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' >
+		</div>
+	<% end %>
+</div>
+
+<script type="text/javascript">
+			function initialize() {
+			  var myCenter = new google.maps.LatLng(<%= @country.latitude %>, <%= @country.longitude %>)
+			  var mapProp = {
+			    scrollwheel: false,
+			    mapTypeControl: false,
+			    streetViewControl: false,
+			    center:myCenter,
+			    zoom:7,
+			    mapTypeId:google.maps.MapTypeId.ROADMAP
+			  };
+			  var map=new google.maps.Map(document.getElementById("map"),mapProp);
+
+			  // This is a marker
+			  var marker = new google.maps.Marker({
+			    // position:myCenter,
+			  });
+
+			  // Zooms in on marker click
+			  google.maps.event.addListener(marker,'click',function() {
+			    map.setZoom(15);
+			    map.setCenter(marker.getPosition());
+			  });
+
+			 // This is the infowindow
+			  var infowindow = new google.maps.InfoWindow({
+			     content:"Hello World!"
+			  });
+			  // Opens infowindow on marker click
+			  google.maps.event.addListener(marker, 'click', function() {
+			    infowindow.open(map,marker);
+			    });
+
+			  // This is a new map with a geocoded address
+			  var geocoder = new google.maps.Geocoder();
+
+			  // This function geocodes the address entered on submit in report modal
+			  document.getElementById('search').addEventListener('submit', function(e) {
+			    e.preventDefault();
+			    var address = document.getElementById("address").value;
+			    geocodeAddress(geocoder, map, address);
+			  });
+
+			  //grabs all of the things with the class load_all_markers
+			  var things = document.getElementsByClassName('load_all_markers');
+
+			  // gets the length of load_all_markers
+			  var length = document.getElementsByClassName('load_all_markers').length
+
+			    
+			  var arr = [];
+			  var arrTitle = []
+			  var arrBody = []
+			  var arrDetails = []
+			  // iterates through var things (array) and adds stuff to empty arrays (dataset.thang refers to html attributte data-thang)
+			  for (var i = 0; i < length; i++){
+			    arr.push(things[i].dataset.thang);
+			    arrTitle.push(things[i].dataset.title);
+			    arrBody.push(things[i].dataset.body);
+			    arrDetails.push(things[i].dataset.details);
+			  }
+
+			  // var arr is now an array of objects in string form
+
+			  // iteration of arr and returning it's object form using JSON.parse saved as variable "thung"
+			  for (var j = 0; j < length; j++){
+
+			    var thung = JSON.parse(arr[j]);
+			    var rTitle = arrTitle[j];
+			    var rBody = arrBody[j];
+			    var rDetails = arrDetails[j];
+
+
+			    // make new marker with the object thung which contains latitude and longitude
+			    var marks = new google.maps.Marker({
+			      position: thung,
+			      map: map
+			    });
+
+			    // anchors infowindow to corresponding / specific marker
+			    function addInfoWindow(marker, title, body, details) {
+			      var infoWindow = new google.maps.InfoWindow({
+			          content: "<b>" + title + "</b><br><br>" + body + details
+			      });
+			      google.maps.event.addListener(marker, 'click', function () {
+			          infoWindow.open(map, this);
+			          map.setZoom(17);
+			          map.setCenter(marker.getPosition());
+			      });
+			    }
+			    // Puts report title + body + details link in infowindow
+			    addInfoWindow(marks,rTitle,rBody,rDetails)
+			    // centers marker and infowindow when marker is clicked
+			    map.setCenter(thung);
+			  }
+			}
+			initialize();
+		</script>
+

@@ -25,6 +25,7 @@ nav {
 	position: fixed;
 	top: 0;
 	background-color: $default-light-yellow;
+	z-index: 10;
 	ul {
 		img {
 			margin: 6px;
@@ -93,18 +94,24 @@ h1 {
 	 	visibility: hidden;
 	  	opacity: 0;
 	}
-	
 }
 
 .individual_countries:hover #individual_country_name {
   		visibility: visible;
   		opacity: 1;
   		transition: 0.2s ease-in;
-	}
+}
 
-#country_name {
-	text-align: left;
-	padding: 1% 2.5%;
+#map {
+	width: 50%;
+	height: 550px;
+	display: inline-block;
+}
+
+#new_post {
+	display: inline-block;
+	width: 50%;
+	background-color: orange;
 }
 
 #country_pic {
