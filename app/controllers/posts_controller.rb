@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @country = Country.find_by(url_name: params[:id])
     @post = Post.find(params[:id])
   end
 

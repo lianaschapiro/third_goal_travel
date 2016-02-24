@@ -67,9 +67,12 @@ h3 {
 	font-size: 20px;
 }
 
-#world_map {
-	height: 500px;
+#map-canvas {
+    height: 85vh;
+    width: 100vw;
+    text-align: center;
 }
+
 
 h1 {
 	padding: 1% 0%;
@@ -79,6 +82,7 @@ h1 {
 
 p, label {
 	font-size: 14px;
+	display: inline-block;
 }
 
 .individual_countries {

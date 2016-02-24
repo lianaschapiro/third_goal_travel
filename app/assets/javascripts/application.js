@@ -14,6 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$( document ).ready(function() {
+  $('#menu_select').bind('change', function() { window.location.pathname = $(this).val() });
+});
+
 
 function geocodeAddress(geocoder, resultsMap, address) {
   geocoder.geocode({'address': address}, function(results, status) {
