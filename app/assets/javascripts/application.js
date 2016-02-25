@@ -54,16 +54,19 @@ function geocodeAddress(geocoder, resultsMap, address) {
 }
 
 function openRestaurantModal() {
+  // $('#country_pic').fadeOut();
   $('#hotel_reviews').fadeOut();
   $('#other_reviews').fadeOut();
   $('#restaurant_reviews').delay(400).fadeIn(300);
 }
 function openHotelModal() {
+  // $('#country_pic').fadeOut();
   $('#other_reviews').fadeOut();
   $('#restaurant_reviews').fadeOut();
   $('#hotel_reviews').delay(400).fadeIn(300);
 }
 function openOtherModal() {
+  // $('#country_pic').fadeOut();
   $('#restaurant_reviews').fadeOut();
   $('#hotel_reviews').fadeOut();
   $('#other_reviews').delay(400).fadeIn(300);

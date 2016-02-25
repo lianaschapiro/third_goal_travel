@@ -1,7 +1,7 @@
 class Country < ActiveRecord::Base
 	belongs_to :region	
 	has_many :journals
-	has_many :posts
+	has_many :reviews
 	has_many :boardposts
 
 

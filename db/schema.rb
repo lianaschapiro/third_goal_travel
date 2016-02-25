@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224172458) do
+ActiveRecord::Schema.define(version: 20160225203503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20160224172458) do
     t.string   "name"
     t.text     "body"
     t.integer  "user_id"
-    t.integer  "post_id"
+    t.integer  "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["review_id"], name: "index_comments_on_review_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
@@ -64,7 +64,14 @@ ActiveRecord::Schema.define(version: 20160224172458) do
 
   add_index "journals", ["country_id"], name: "index_journals_on_country_id", using: :btree
 
-  create_table "posts", force: :cascade do |t|
+  create_table "regions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "url_name"
+  end
+
+  create_table "reviews", force: :cascade do |t|
     t.float    "longitude"
     t.float    "latitude"
     t.string   "title"
@@ -78,15 +85,8 @@ ActiveRecord::Schema.define(version: 20160224172458) do
     t.integer  "post_type"
   end
 
-  add_index "posts", ["country_id"], name: "index_posts_on_country_id", using: :btree
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
-
-  create_table "regions", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "url_name"
-  end
+  add_index "reviews", ["country_id"], name: "index_reviews_on_country_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "fname"
@@ -102,10 +102,10 @@ ActiveRecord::Schema.define(version: 20160224172458) do
 
   add_foreign_key "boardposts", "countries"
   add_foreign_key "boardposts", "users"
-  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
   add_foreign_key "countries", "regions"
   add_foreign_key "journals", "countries"
-  add_foreign_key "posts", "countries"
-  add_foreign_key "posts", "users"
+  add_foreign_key "reviews", "countries"
+  add_foreign_key "reviews", "users"
 end
