@@ -29,7 +29,7 @@ Rails.application.routes.draw do
         # , except: [:create]
         # post 'countries/:id', to: 'boardposts#create', as: "create_boardpost"
 
-        resources :posts do
+        resources :reviews do
           resources :comments
         end
     end

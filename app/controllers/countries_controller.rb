@@ -9,8 +9,8 @@ class CountriesController < ApplicationController
     @journals = @country.journals.order("created_at DESC")
     @boardpost = Boardpost.new
     @boardposts = @country.boardposts.order("created_at DESC")
-    @post = Post.new
-    @posts = @country.posts.order("created_at DESC")
+    @review = Review.new
+    @reviews = @country.reviews.order("created_at DESC")
   end
 
   private

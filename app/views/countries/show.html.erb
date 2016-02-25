@@ -8,7 +8,9 @@
 		<button class="left" onclick="openOtherModal()">Play</button>
 		<button class="right" onclick="openPostModal()">Add</button>
 		</div>
-		<!--  Create a new review (post) -->
+
+		
+		<!--  Create a new review -->
 		<div id="post_modal" class="clear">
 				<p id="close_post_modal" onclick="closePostModal()">X</p>
 				<h3>Add a Review</h3>
@@ -17,7 +19,7 @@
 						<input id="address" type="textbox" placeholder="Search by address">
 				 		<input id="submit" type="submit" value="Search">
 				 	</form>
-					<%= form_for [@country, @post] do |f| %>
+					<%= form_for [@country, @review] do |f| %>
 						<%= f.text_field :title, placeholder: :name %>
 						<br>
 						<%= f.text_field :body, placeholder: :desription%>
@@ -25,16 +27,16 @@
 						<%= f.hidden_field :longitude %>
 						<%= f.hidden_field :address %>
 						<br>
-						<%= f.select :post_type, Post.post_types.keys, prompt: :select %>
+						<%= f.select :post_type, Review.post_types.keys, prompt: :select %>
 						<br>
 						<%= f.submit %>
 					<% end %>
 		</div>
 
-		<!-- All reviews -->
+		<!-- Restaurant reviews -->
 		<div id="restaurant_reviews" class="clear">
 			<h3>Eat</h3>
-					<% @posts.each do |p| %>
+					<% @reviews.each do |p| %>
 						<% if p.post_type == "restaurant" %>
 							<p>Title: <%= p.title %></p>
 							<p>Type: <%=p.post_type %> </p>
@@ -44,9 +46,10 @@
 						<% end %>
 					<% end %>
 		</div>
+		<!-- Hotel reviews -->
 		<div id="hotel_reviews" class="clear">
 			<h3>Sleep</h3>
-					<% @posts.each do |p| %>
+					<% @reviews.each do |p| %>
 						<% if p.post_type == "hotel" %>
 							<p>Title: <%= p.title %></p>
 							<p>Type: <%=p.post_type %> </p>
@@ -56,9 +59,10 @@
 						<% end %>
 					<% end %>
 		</div>
+		<!-- Other reviews -->
 		<div id="other_reviews" class="clear">
 			<h3>Play</h3>
-					<% @posts.each do |p| %>
+					<% @reviews.each do |p| %>
 						<% if p.post_type == "other" %>
 							<p>Title: <%= p.title %></p>
 							<p>Type: <%=p.post_type %> </p>
@@ -70,11 +74,10 @@
 		</div>
 	</div>
 
-	
+	<!-- Journals -->
 	<div id="volunteer_journals">
 		<h3>Volunteer Journals</h3>
 			<p>Add a new journal for <%= @country.name %></p>
-
 			<%= form_for [@country, @journal] do |j| %>
 				<%= j.label :title %>
 				<%= j.text_field :title %>
@@ -87,7 +90,6 @@
 				<%= j.text_field :author %>
 				<%= j.submit value: "Add" %>
 			<% end %>
-
 			<% @journals.each do |j| %>
 				<div id="individual_journals">
 					<p><%= link_to j.title, j.link %></p>
@@ -112,7 +114,7 @@
 				<% end %>
 			</div>
 	</div>
-
+	<!-- Adding a new boardpost -->
 	<div id="outer_boardpost_modal">
 		<div id="inner_boardpost_modal">
 			<h1>Post on the Message Board</h1>
@@ -128,16 +130,18 @@
 		</div>
 	</div>
 
-<div id="country_pic">
+	<!-- Country picture-->
+	<div id="country_pic" class="clear">
 		<img src="/images/<%= @country.url_name%>.jpg">
 	</div>
 
-
-	<% @posts.each do |r| %>
-		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "see details", country_post_path(r.country, r) %>'>
+	<!-- Hidden review data to populate map with markers -->
+	<% @reviews.each do |r| %>
+		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "see details", country_review_path(r.country, r) %>'>
 		</div>
 	<% end %>
 
+	<!-- Javascript to create country map -->
 	<script type="text/javascript">
 		function initialize() {
 		  var myCenter = new google.maps.LatLng(<%= @country.latitude %>, <%= @country.longitude %>)
