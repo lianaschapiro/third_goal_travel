@@ -14,15 +14,23 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$( document ).ready(function() {
-  $('#menu_select').bind('change', function() { window.location.pathname = $(this).val() });
+$(document).ready(function(){
+
+  // Select destination by region 
+  $('#menu_select').on('change', function() {window.location.pathname = $(this).val()});
 
   // Fade out flash notices
   $('#flash').delay(1200).fadeOut(1000);
 
 });
 
+// Populates latitude and longitude in post form
+function populateInputs(pos) {
+  document.getElementById("post_latitude").value=pos.lat()
+  document.getElementById("post_longitude").value=pos.lng();
+}
 
+// Geocoder function that gets latitude and longitude from address
 function geocodeAddress(geocoder, resultsMap, address) {
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
@@ -32,20 +40,14 @@ function geocodeAddress(geocoder, resultsMap, address) {
         map: resultsMap,
         position: results[0].geometry.location
       });
-      // sets marker position to the geocoded latitude/longitude
-      var post_lng = marker.position.lng();
-      var post_lat = marker.position.lat();
       // sets hidden form_for fields in the "new report modal" to the latitude/longitude coordinates
-      document.getElementById("post_latitude").setAttribute("value", post_lat); 
-      document.getElementById("post_longitude").setAttribute("value", post_lng);
-      document.getElementById("post_address").setAttribute("value", address);
-      console.log(post_lat);
-      console.log(post_lng);
-      // changes address search button to say "Address Found!"
-      // document.getElementById("submit").setAttribute("value", "Address Found!");
+      populateInputs(marker.position)
+      document.getElementById("post_address").value = address;
+      // changes address search button to say "Location Found!"
+      document.getElementById("submit").setAttribute("value", "Location Found!");
       // changes address search button text back to "Search"
-      // setTimeout(function(){ 
-        // document.getElementById("submit").setAttribute("value", "Search"); }, 3000);
+      setTimeout(function(){ 
+        document.getElementById("submit").setAttribute("value", "Search"); }, 2000);
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
@@ -53,8 +55,7 @@ function geocodeAddress(geocoder, resultsMap, address) {
 }
 
 
-// Creating Message board posts
-
+// Creating message board posts
 function openBoardpostModal() {
   $('#outer_boardpost_modal').fadeIn(200);
 }

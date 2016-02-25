@@ -101,7 +101,7 @@
 
 
 	<% @posts.each do |r| %>
-		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "...", country_post_path(r.country, r) %>'>
+		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "see details", country_post_path(r.country, r) %>'>
 		</div>
 	<% end %>
 
@@ -111,7 +111,7 @@
 		  var mapProp = {
 		    scrollwheel: false,
 		    mapTypeControl: false,
-		    streetViewControl: false,
+		    streetViewControl: true,
 		    center:myCenter,
 		    zoom:7,
 		    mapTypeId:google.maps.MapTypeId.ROADMAP
@@ -156,7 +156,7 @@
 		  var length = document.getElementsByClassName('load_all_markers').length;
 
 		    
-		  var arr = [];
+		  arr = [];
 		  var arrTitle = [];
 		  var arrBody = [];
 		  var arrDetails = [];
@@ -188,7 +188,7 @@
 		    // anchors infowindow to corresponding / specific marker
 		    function addInfoWindow(marker, title, body, details) {
 		      var infoWindow = new google.maps.InfoWindow({
-		          content: "<b>" + title + "</b><br><br>" + body + details
+		          content: "<b>" + title + "</b><br><br>" + body + "<br><br>" + details
 		      });
 		      //
 		      google.maps.event.addListener(marker, 'click', function () {
@@ -202,6 +202,21 @@
 		    // centers marker and infowindow when marker is clicked
 		    map.setCenter(thung);
 		  }
+		  	// 
+		  google.maps.event.addListener(map, 'click', function(event) {
+			marker.setDraggable(true);
+			marker.setPosition(event.latLng);
+			marker.setMap(map);
+			marker.setAnimation(google.maps.Animation.DROP);
+				populateInputs(event.latLng);
+	
+
+		 	google.maps.event.addListener(marker, "drag", function (mEvent) {
+                populateInputs(mEvent.latLng);
+            });
+		  });
+
+
 		}
 		initialize();
 	</script>
