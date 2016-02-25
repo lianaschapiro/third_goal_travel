@@ -5,9 +5,9 @@ class Post < ActiveRecord::Base
 
   enum post_type: [:restaurant, :hotel, :other]
 
- #  	geocoded_by :address
-	# reverse_geocoded_by :latitude, :longitude, :address => :full_address
+ 	geocoded_by :address
+	reverse_geocoded_by :latitude, :longitude, :address => :full_address
 
-	# after_validation :geocode, :reverse_geocode
+	after_validation :reverse_geocode
 
 end

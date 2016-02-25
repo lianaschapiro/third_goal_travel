@@ -6,7 +6,7 @@ class BoardpostsController < ApplicationController
   def create
     @country = Country.find_by(url_name: params[:country_id])
     @boardpost = @country.boardposts.build(boardpost_params)
-    # @boardpost.user_id = current_user.id
+    @boardpost.user_id = current_user.id
     if @boardpost.save
       flash[:notice] = "Your thoughts have been posted"
     else

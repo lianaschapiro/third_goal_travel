@@ -72,6 +72,11 @@ nav {
 	float: right;
 }
 
+.middle {
+	text-align:center;
+	margin-left: 17%;
+}
+
 a {
 	text-decoration: none;
 }
@@ -81,8 +86,10 @@ h3 {
 	font-size: 20px;
 }
 #china_background {
-	background-image: image-url("greatwallofchina.jpg");
-	background: 100%;
+	height: 94vh;
+	background-image: url('greatwallofchina.jpg');
+	background-position: cover;
+	background-repeat: no-repeat;
 }
 
 #map-canvas {
@@ -100,14 +107,14 @@ h1 {
 
 p, label {
 	font-size: 14px;
-	display: inline-block;
+	// display: inline-block;
 }
 
 .individual_countries {
 	position: relative;
 	width: 18%;
 	min-width: 200px;
-	margin: .5%;
+	margin: 0.5%;
 	display: inline-block;
 	img {
 		width: 100%;
