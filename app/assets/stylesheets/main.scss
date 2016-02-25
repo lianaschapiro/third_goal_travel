@@ -184,12 +184,10 @@ p, label {
 	border-left: solid 2px #f1f1f1;
 	border-right: solid 2px #f1f1f1;
 }
-.tab.two {
+.tab.two, .tab.three, .tab.four {
 	border-bottom: solid 2px #f1f1f1;
 }
-.tab.three {
-	border-bottom: solid 2px #f1f1f1;
-}
+
 
 #restaurant_reviews {
 	height: 500px;
@@ -218,7 +216,7 @@ p, label {
 	}
 }
 
-#post_modal {
+#outer_review_modal {
 	position: relative;
 	display: none;
 	width: 100%;
@@ -229,6 +227,9 @@ p, label {
 	margin: 20px auto;
 	overflow: auto;
     z-index: 999999;
+    #inner_review_modal {
+    	margin: 15px 0px;
+    }
     #close_post_modal {
     }
 }

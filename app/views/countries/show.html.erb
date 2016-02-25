@@ -6,13 +6,15 @@
 			<p class="left tab one" onclick="openRestaurantModal()">Eat</p>
 			<p class="left tab two" onclick="openHotelModal()">Sleep</p>
 			<p class="left tab three" onclick="openOtherModal()">Play</p>
-			<button class="right" id="add" onclick="openPostModal()">Add</button>	
+			<!-- <p class="left tab four"></p> -->
+			<button class="right" id="add" onclick="openReviewModal()">Add</button>	
 		</div>
 
 		
 		<!--  Create a new review -->
-		<div id="post_modal" class="clear">
-				<p id="close_post_modal" onclick="closePostModal()">X</p>
+		<div id="outer_review_modal" class="clear">
+			<div id="inner_review_modal">
+				<p id="close_post_modal" onclick="closeReviewModal()">X</p>
 				<h3>Add a Review</h3>
 					<form id="search">
 						<p>Click on the map to set a location OR</p>
@@ -31,6 +33,7 @@
 						<br>
 						<%= f.submit %>
 					<% end %>
+			</div>
 		</div>
 
 		<!-- Restaurant reviews -->
