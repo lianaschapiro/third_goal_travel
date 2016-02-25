@@ -9,18 +9,28 @@
 	  <%= csrf_meta_tags %>
 	</head>
 	<body>
+
+		<% if flash[:notice] %>
+			<div id="flash">
+				<h3><%= flash[:notice] %></h3>
+			</div>
+		<% end %>
+
 		<nav>
 			<ul class="left">
 				<img src="/images/facebook.png">
 				<img src="/images/instagram.png">
 				<img src="/images/twitter.png">
 			</ul>
-			
-			<ul class="right">
-				<li><a href="#">THING1</a></li>
-				<li><a href="#">THING2</a></li>
-				<li><a href="#">THING3</a></li>
-			</ul>
+
+			<% if current_user %>
+				<ul class="right">
+					<li><a href="#">THING1</a></li>
+					<li><a href="#">THING2</a></li>
+					<li><a href="#">THING3</a></li>
+				</ul>
+			<% end %>
+
 			<ul style="text-align:center;margin-left: 17%">
 				<% if @country %>
 				<h1 ><%= @country.name %></h1>

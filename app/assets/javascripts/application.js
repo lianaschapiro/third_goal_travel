@@ -16,6 +16,10 @@
 //= require_tree .
 $( document ).ready(function() {
   $('#menu_select').bind('change', function() { window.location.pathname = $(this).val() });
+
+  // Fade out flash notices
+  $('#flash').delay(1200).fadeOut(1000);
+
 });
 
 

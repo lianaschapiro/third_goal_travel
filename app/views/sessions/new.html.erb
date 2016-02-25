@@ -1,2 +1,10 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h2>Please Log In:</h2>
+
+<%= form_tag log_in_path do %>
+<h3><%= label_tag(:email) %></h3>
+<%= text_field_tag(:email) %>
+<h3><%= label_tag(:password) %></h3>
+<%= password_field_tag(:password) %>
+<br><br>
+<%= submit_tag("Log In") %>
+<% end %>

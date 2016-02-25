@@ -6,11 +6,12 @@ class SessionsController < ApplicationController
   	@user = User.where(email: params[:email]).first   
     if @user && @user.authenticate(params[:password])     
       session[:user_id] = @user.id     
-      flash[:notice] = "Welcome back, #{@user.username}"
+      flash[:notice] = "Welcome back!"
+      redirect_to root_path
     else     
-      flash[:alert] = "Invalid email or password"
+      flash[:notice] = "Invalid email or password"
+      render "new"
     end
-    redirect_to root_path
   end
 
   def destroy
