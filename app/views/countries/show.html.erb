@@ -4,22 +4,22 @@
 	<div id="post_wrapper">
 		<h3>Add a Review</h3>
 			<form id="search">
-				<label>Address</label>
+				<p>Click on the map to set a location OR</p>
 				<input id="address" type="textbox" placeholder="Search by address">
 		 		<input id="submit" type="submit" value="Search">
 		 	</form>
 	
 		<!--  Create a new post -->
 		<%= form_for [@country, @post] do |f| %>
-			<%= f.label :title %>
-			<%= f.text_field :title %>
-			<%= f.label :body %>
-			<%= f.text_field :body %>
-			<%= f.text_field :latitude %>
-			<%= f.text_field :longitude %>
-			<%= f.text_field :address %>
-			<%= f.label "What is this?"%>
+			<%= f.text_field :title, placeholder: :name %>
+			<br>
+			<%= f.text_field :body, placeholder: :desription%>
+			<%= f.hidden_field :latitude %>
+			<%= f.hidden_field :longitude %>
+			<%= f.hidden_field :address %>
+			<br>
 			<%= f.select :post_type, Post.post_types.keys, prompt: :select %>
+			<br>
 			<%= f.submit %>
 		<% end %>
 	
