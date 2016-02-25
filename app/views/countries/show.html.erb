@@ -2,39 +2,72 @@
 	<div id="map"></div>
 
 	<div id="post_wrapper">
-		<h3>Add a Review</h3>
-			<form id="search">
-				<p>Click on the map to set a location OR</p>
-				<input id="address" type="textbox" placeholder="Search by address">
-		 		<input id="submit" type="submit" value="Search">
-		 	</form>
-	
-		<!--  Create a new post -->
-		<%= form_for [@country, @post] do |f| %>
-			<%= f.text_field :title, placeholder: :name %>
-			<br>
-			<%= f.text_field :body, placeholder: :desription%>
-			<%= f.hidden_field :latitude %>
-			<%= f.hidden_field :longitude %>
-			<%= f.hidden_field :address %>
-			<br>
-			<%= f.select :post_type, Post.post_types.keys, prompt: :select %>
-			<br>
-			<%= f.submit %>
-		<% end %>
-	
+		<div>
+		<button class="left" onclick="openRestaurantModal()">Eat</button>
+		<button class="left" onclick="openHotelModal()">Sleep</button>
+		<button class="left" onclick="openOtherModal()">Play</button>
+		<button class="right" onclick="openPostModal()">Add</button>
+		</div>
+		<!--  Create a new review (post) -->
+		<div id="post_modal" class="clear">
+				<p id="close_post_modal" onclick="closePostModal()">X</p>
+				<h3>Add a Review</h3>
+					<form id="search">
+						<p>Click on the map to set a location OR</p>
+						<input id="address" type="textbox" placeholder="Search by address">
+				 		<input id="submit" type="submit" value="Search">
+				 	</form>
+					<%= form_for [@country, @post] do |f| %>
+						<%= f.text_field :title, placeholder: :name %>
+						<br>
+						<%= f.text_field :body, placeholder: :desription%>
+						<%= f.hidden_field :latitude %>
+						<%= f.hidden_field :longitude %>
+						<%= f.hidden_field :address %>
+						<br>
+						<%= f.select :post_type, Post.post_types.keys, prompt: :select %>
+						<br>
+						<%= f.submit %>
+					<% end %>
+		</div>
 
-		<!-- All posts -->
-		<h3>Reviews</h3>
-		<% @posts.each do |p| %>
-			Title: <%= p.title %>
-			<p>Type: <%=p.post_type %> </p>
-			<p>Description: <%= p.body %></p>
-			<p>Address: <%= p.address %></p>
-
-			<hr>
-		<% end %>
-		<br>
+		<!-- All reviews -->
+		<div id="restaurant_reviews" class="clear">
+			<h3>Eat</h3>
+					<% @posts.each do |p| %>
+						<% if p.post_type == "restaurant" %>
+							<p>Title: <%= p.title %></p>
+							<p>Type: <%=p.post_type %> </p>
+							<p><%= p.body %></p>
+							<p>Address: <%= p.full_address %></p>
+							<hr>
+						<% end %>
+					<% end %>
+		</div>
+		<div id="hotel_reviews" class="clear">
+			<h3>Sleep</h3>
+					<% @posts.each do |p| %>
+						<% if p.post_type == "hotel" %>
+							<p>Title: <%= p.title %></p>
+							<p>Type: <%=p.post_type %> </p>
+							<p><%= p.body %></p>
+							<p>Address: <%= p.full_address %></p>
+							<hr>
+						<% end %>
+					<% end %>
+		</div>
+		<div id="other_reviews" class="clear">
+			<h3>Play</h3>
+					<% @posts.each do |p| %>
+						<% if p.post_type == "other" %>
+							<p>Title: <%= p.title %></p>
+							<p>Type: <%=p.post_type %> </p>
+							<p><%= p.body %></p>
+							<p>Address: <%= p.full_address %></p>
+							<hr>
+						<% end %>
+					<% end %>
+		</div>
 	</div>
 
 	
@@ -113,7 +146,7 @@
 		    mapTypeControl: false,
 		    streetViewControl: true,
 		    center:myCenter,
-		    zoom:7,
+		    zoom:8,
 		    mapTypeId:google.maps.MapTypeId.ROADMAP
 		  };
 		  var map=new google.maps.Map(document.getElementById("map"),mapProp);

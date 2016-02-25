@@ -77,6 +77,10 @@ nav {
 	margin-left: 17%;
 }
 
+.clear {
+	clear: both;
+}
+
 a {
 	text-decoration: none;
 }
@@ -154,6 +158,33 @@ p, label {
 	padding: 1%;
 	height: 550px;
 	background-color: $default-light-red;
+}
+
+#restaurant_reviews {
+	display: none;
+}
+
+#hotel_reviews {
+	display: none;
+}
+
+#other_reviews {
+	display: none;
+}
+
+#post_modal {
+	position: relative;
+	display: none;
+	width: 100%;
+	height: 90%;
+	background-color:$default-light-red;
+	// box-shadow: 0 0 15px #9e9e9e;
+	// border: #cecece solid 1px;
+	margin: 20px auto;
+	overflow: auto;
+    z-index: 999999;
+    #close_post_modal {
+    }
 }
 
 #message_board {

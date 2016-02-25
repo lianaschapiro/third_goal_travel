@@ -53,6 +53,36 @@ function geocodeAddress(geocoder, resultsMap, address) {
   });
 }
 
+function openRestaurantModal() {
+  $('#hotel_reviews').fadeOut();
+  $('#other_reviews').fadeOut();
+  $('#restaurant_reviews').delay(400).fadeIn(300);
+}
+function openHotelModal() {
+  $('#other_reviews').fadeOut();
+  $('#restaurant_reviews').fadeOut();
+  $('#hotel_reviews').delay(400).fadeIn(300);
+}
+function openOtherModal() {
+  $('#restaurant_reviews').fadeOut();
+  $('#hotel_reviews').fadeOut();
+  $('#other_reviews').delay(400).fadeIn(300);
+}
+
+
+
+
+// Creating reviews (posts)
+function openPostModal() {
+  $('#restaurant_reviews').fadeOut();
+  $('#hotel_reviews').fadeOut();
+  $('#other_reviews').fadeOut();
+  $('#post_modal').delay(400).fadeIn(300);
+}
+function closePostModal() {
+  $('#post_modal').fadeOut(300);
+}
+
 
 // Creating message board posts
 function openBoardpostModal() {
