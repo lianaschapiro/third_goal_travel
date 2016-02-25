@@ -109,6 +109,10 @@ h1 {
 	font-size: 30px;
 }
 
+h4 {
+	font-size: 16px;
+}
+
 p, label {
 	font-size: 14px;
 	// display: inline-block;
@@ -153,23 +157,65 @@ p, label {
 
 #post_wrapper {
 	display: inline-block;
-	vertical-align:top;
+	vertical-align: top;
 	width: 38%;
 	padding: 1%;
 	height: 550px;
 	background-color: $default-light-red;
+	#add {
+		float: right;
+		width: 50px;
+		height: 30px;
+		background-color: white;
+	}
+}
+
+.tab {
+	width: 15%;
+	height: 20px;
+	border: none;
+	padding: 10px;
+	font-size: 16px;
+	background-color: $default-light-red;
+}
+
+.tab.one {
+	border-top: solid 2px #f1f1f1;
+	border-left: solid 2px #f1f1f1;
+	border-right: solid 2px #f1f1f1;
+}
+.tab.two {
+	border-bottom: solid 2px #f1f1f1;
+}
+.tab.three {
+	border-bottom: solid 2px #f1f1f1;
 }
 
 #restaurant_reviews {
-	display: none;
+	height: 500px;
+	padding-top: 10px;
+	text-align: left;
+	p {
+		padding: 5px;
+	}
 }
 
-#hotel_reviews {
+#hotel_reviews, #other_reviews {
 	display: none;
+	padding-top: 10px;
+	text-align: left;
 }
 
-#other_reviews {
-	display: none;
+.individual_reviews {
+	background-color: #F1F1F1;
+	margin: 15px 0px;
+	h4 {
+		color: $default-light-red;
+		padding: 5px;
+	}
+	p {
+		padding: 5px;
+	}
 }
 
 #post_modal {

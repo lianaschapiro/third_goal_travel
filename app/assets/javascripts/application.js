@@ -54,23 +54,30 @@ function geocodeAddress(geocoder, resultsMap, address) {
 }
 
 function openRestaurantModal() {
-  // $('#country_pic').fadeOut();
+  $('.tab.one').css({"border-top":"solid 2px #f1f1f1", "border-right":"solid 2px #f1f1f1", "border-left":"solid 2px #f1f1f1", "border-bottom":"none"});
+  $('.tab.two').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
+  $('.tab.three').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
   $('#hotel_reviews').fadeOut();
   $('#other_reviews').fadeOut();
   $('#restaurant_reviews').delay(400).fadeIn(300);
-}
+};
 function openHotelModal() {
-  // $('#country_pic').fadeOut();
+  $('.tab.one').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
+  $('.tab.two').css({"border-top":"solid 2px #f1f1f1", "border-right":"solid 2px #f1f1f1", "border-left":"solid 2px #f1f1f1", "border-bottom":"none"});
+  $('.tab.three').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
+  $('#hotel_reviews').fadeOut();
   $('#other_reviews').fadeOut();
   $('#restaurant_reviews').fadeOut();
   $('#hotel_reviews').delay(400).fadeIn(300);
-}
+};
 function openOtherModal() {
-  // $('#country_pic').fadeOut();
+  $('.tab.one').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
+  $('.tab.two').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
+  $('.tab.three').css({"border-top":"solid 2px #f1f1f1", "border-right":"solid 2px #f1f1f1", "border-left":"solid 2px #f1f1f1", "border-bottom":"none"});
   $('#restaurant_reviews').fadeOut();
   $('#hotel_reviews').fadeOut();
   $('#other_reviews').delay(400).fadeIn(300);
-}
+};
 
 
 
