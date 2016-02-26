@@ -84,16 +84,13 @@
 		<h3>Volunteer Journals</h3>
 			<p>Add a new journal for <%= @country.name %></p>
 			<%= form_for [@country, @journal] do |j| %>
-				<%= j.label :title %>
-				<%= j.text_field :title %>
-				<%= j.label :description %>
-				<%= j.text_field :description %>
+				<%= j.text_field :title, placeholder: :journal_name %>
+				<%= j.text_field :description, placeholder: :description %>
 				<br>
-				<%= j.label :link %>
-				<%= j.text_field :link %>
-				<%= j.label :author %>
-				<%= j.text_field :author %>
-				<%= j.submit value: "Add" %>
+				<%= j.text_field :link, placeholder: :link_to_journal %>
+				<%= j.text_field :author, placeholder: :journal_author %>
+				<br>
+				<%= j.submit value: "ADD", id: :journal_add_button %>
 			<% end %>
 			<% @journals.each do |j| %>
 				<div id="individual_journals">
@@ -122,15 +119,14 @@
 	<!-- Adding a new boardpost -->
 	<div id="outer_boardpost_modal">
 		<div id="inner_boardpost_modal">
-			<h1>Post on the Message Board</h1>
-				<p id="close_boardpost_modal" class="right" onclick="closeBoardpostModal()">X</p>
-				
+			<p id="close_boardpost_modal" class="right" onclick="closeBoardpostModal()">X</p>
+				<h2 class="clear">Post on the Message Board</h2>
 				<%= form_for [@country, @boardpost] do |j| %>
-					<%= j.label :title %>
-					<%= j.text_field :title %>
-					<%= j.label :body %>
-					<%= j.text_field :body %>
-					<%= j.submit value: "Post" %>
+					<%= j.text_field :title, placeholder: :post_title %>
+					<br>
+					<%= j.text_area :body, placeholder: "What's on your mind?" %>
+					<br>
+					<%= j.submit value: "POST", id: :submit_new_boardpost %>
 				<% end %>
 		</div>
 	</div>
