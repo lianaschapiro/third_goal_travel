@@ -26,9 +26,16 @@
 			<% if current_user %>
 				<ul class="right">
 					<li><a href="#">THING1</a></li>
-					<li><a href="#">THING2</a></li>
-					<li><a href="#">THING3</a></li>
+					<li><a href="/countries">COUNTRIES</a></li>
+					<li><a href="#">MY ACCOUNT</a></li>
 					<li><a href="/log-out">LOG OUT</a> </li>
+				</ul>
+			<% else %>
+				<ul class="right">
+					<li><a href="/">HOME</a></li>
+					<li><a href="/countries">COUNTRIES</a></li>
+					<li><a href="/log-in">LOG IN</a></li>
+					<li><a href="/sign-up">SIGN UP</a> </li>
 				</ul>
 			<% end %>
 

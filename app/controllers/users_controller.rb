@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Thanks for joining!"
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
       render "new"
     end
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Your account has been updated"
     else
       flash[:notice] = "Unable to update your account"
+    end
     redirect_to @user
   end
 

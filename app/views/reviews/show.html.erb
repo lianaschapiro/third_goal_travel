@@ -1,21 +1,21 @@
+<!-- Review detail -->
 <h1><%= @review.title %></h1>
+	<p>(<%= @review.post_type %>)</p>
+		<h3><%= @review.body %></h3>
+			<p>Posted by<%= @review.user %></p>
+				<p>on <%= @review.created_at.strftime("%b %d, %Y") %></p>
+					<hr>
 
-<p>(<%= @review.post_type %>)</p>
-<h3><%= @review.body %></h3>
-<p>Posted by<%= @review.user %></p>
-<p>on <%= @review.created_at.strftime("%b %d, %Y") %></p>
+<!-- Add a new comment -->
+<h4>Comments</h4>
+	<%= form_for [@review.country, @review, @comment] do |c| %>
+		<%= c.text_field :body, placeholder: :what_do_you_think? %>
+		<%= c.submit value: "Comment" %>
+	<% end %>
 
-	<!-- Add a new comment -->
-	<h3>Comments</h3>
-		<p>Add a new comment</p>
-			<%= form_for [@review.country, @review, @comment] do |c| %>
-				<%= c.text_field :body %>
-				<%= c.submit value: "Comment" %>
-			<% end %>
-
-	<!-- All comments -->
-	<p>Previous comments:</p>
-		<% @comments.each do |c| %>
-			<p><%= c.body %></p>
-			<P><%= c.user.fname %></p>
-		<% end %>
+<!-- All comments -->
+<% @comments.each do |c| %>
+	<p><%= c.user.fname + " " + c.user.lname %> says...</p>
+	<p><%= c.body %></p>
+	<p><%= c.created_at.strftime("%b %d, %Y") %></p>
+<% end %>
