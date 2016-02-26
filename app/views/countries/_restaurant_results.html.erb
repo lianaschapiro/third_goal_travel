@@ -1,0 +1,18 @@
+<% @reviews.each do |p| %>
+				<div class="individual_reviews">
+					<% if p.post_type == "restaurant" %>
+						<h4><b><%= p.title %></b></h4>
+						<p><%= p.body %></p>
+						<p>Address: <%= p.full_address %></p>
+						<p><%= link_to "full review and comments", country_review_path(p.country, p) %> </p>
+					<% end %>
+				</div>
+			<% end %>
+			<% if @reviews == [] %>
+				<p>There are no reviews containing the term(s) <%= params[:search] %>.</p>
+			<% end %>
+			<%= form_tag(country_path, :method => "get", id: "search-form", remote: :true) do %>
+				<%= text_field_tag :search, params[:search], placeholder: "Search restaurant reviews" %>
+				<%= submit_tag "Search" %>
+			<% end %>
+			<button><%= link_to "Clear Search Filters", @country %></button>

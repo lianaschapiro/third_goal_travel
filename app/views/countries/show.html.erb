@@ -40,47 +40,30 @@
 
 		<!-- Restaurant reviews -->
 		<div id="restaurant_reviews" class="clear">
-			<% @reviews.each do |p| %>
-				<div class="individual_reviews">
-					<% if p.post_type == "restaurant" %>
-						<h4><b><%= p.title %></b></h4>
-						<p><%= p.body %></p>
-						<p>Address: <%= p.full_address %></p>
-						<p><%= link_to "full review and comments", country_review_path(p.country, p) %> </p>
-					<% end %>
-				</div>
-			<% end %>
+			
+			<%= render partial: "restaurant_results" %>
+
 		</div>
+
 		<!-- Hotel reviews -->
 		<div id="hotel_reviews" class="clear">
-			<% @reviews.each do |p| %>
-				<div class="individual_reviews">
-					<% if p.post_type == "hotel" %>
-						<h4><b><%= p.title %></b></h4>
-						<p><%= p.body %></p>
-						<p>Address: <%= p.full_address %></p>
-						<p><%= link_to "full review and comments", country_review_path(p.country, p) %> </p>
-					<% end %>
-				</div>
-			<% end %>
+			
+			<%= render partial: "hotel_results" %>
+
+			
 		</div>
 		<!-- Other reviews -->
 		<div id="other_reviews" class="clear">
-			<% @reviews.each do |p| %>
-				<div class="individual_reviews">
-					<% if p.post_type == "other" %>
-						<h4><b><%= p.title %></b></h4>
-						<p><%= p.body %></p>
-						<p>Address: <%= p.full_address %></p>
-						<p><%= link_to "full review and comments (#{p.comments.count})", country_review_path(p.country, p) %> </p>
-					<% end %>
-				</div>
-			<% end %>
+
+			<%= render partial: "other_results" %>
+
+			
 		</div>
 	</div>
 
 	<!-- Journals -->
 	<div id="volunteer_journals">
+		<h3><%= @country.name %> Volunteer Journals</h3>
 		<% @journals.each do |j| %>
 			<div id="individual_journals">
 				<p><%= link_to j.title, j.link %></p>

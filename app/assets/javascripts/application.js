@@ -25,8 +25,8 @@ $(document).ready(function(){
 
 // Populates latitude and longitude in post form
 function populateInputs(pos) {
-  document.getElementById("post_latitude").value=pos.lat()
-  document.getElementById("post_longitude").value=pos.lng();
+  document.getElementById("review_latitude").value=pos.lat()
+  document.getElementById("review_longitude").value=pos.lng();
 }
 
 // Geocoder function that gets latitude and longitude from address
@@ -41,7 +41,7 @@ function geocodeAddress(geocoder, resultsMap, address) {
       });
       // sets hidden form_for fields in the "new report modal" to the latitude/longitude coordinates
       populateInputs(marker.position)
-      document.getElementById("post_address").value = address;
+      document.getElementById("review_address").value = address;
       // changes address search button to say "Location Found!"
       document.getElementById("submit").setAttribute("value", "Location Found!");
       // changes address search button text back to "Search"
