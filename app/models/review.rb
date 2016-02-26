@@ -10,4 +10,13 @@ class Review < ActiveRecord::Base
 
 	after_validation :reverse_geocode
 
+
+	def self.search(search)
+		# where("title ILIKE ?", "%#{search}%") 
+		
+		# where("body ILIKE ?", "%#{search}")
+		# where("full_address ILIKE ?", "%#{search}%")
+		where("title ILIKE ? OR body ILIKE ?", "%#{search}%", "%#{search}%")
+	end
+
 end

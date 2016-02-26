@@ -10,7 +10,15 @@ class CountriesController < ApplicationController
     @boardpost = Boardpost.new
     @boardposts = @country.boardposts.order("created_at DESC")
     @review = Review.new
-    @reviews = @country.reviews.order("created_at DESC")
+    if params[:search]
+      @reviews = Review.search(params[:search]).order("created_at DESC")
+    else
+      @reviews = @country.reviews.order("created_at DESC")
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private
