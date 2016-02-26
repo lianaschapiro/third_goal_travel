@@ -5,6 +5,9 @@ class ReviewsController < ApplicationController
   def show
     @country = Country.find_by(url_name: params[:id])
     @review = Review.find(params[:id])
+    @comment = Comment.new
+    review_id = @review.id
+    @comments = @review.comments.order("created_at DESC")
   end
 
   def create

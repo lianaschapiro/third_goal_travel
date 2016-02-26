@@ -1,12 +1,11 @@
 <!-- This is the country map -->
 	<div id="map"></div>
 
-	<div id="post_wrapper">
+	<div id="review_wrapper">
 		<div>
 			<p class="left tab one" onclick="openRestaurantModal()">Eat</p>
 			<p class="left tab two" onclick="openHotelModal()">Sleep</p>
 			<p class="left tab three" onclick="openOtherModal()">Play</p>
-			<!-- <p class="left tab four"></p> -->
 			<button class="right" id="add" onclick="openReviewModal()">Add</button>	
 		</div>
 
@@ -14,8 +13,8 @@
 		<!--  Create a new review -->
 		<div id="outer_review_modal" class="clear">
 			<div id="inner_review_modal">
-				<p id="close_post_modal" onclick="closeReviewModal()">X</p>
 				<h3>Add a Review</h3>
+					<h4 id="close_post_modal" class="right" onclick="closeReviewModal()"><a href="">X</a><h4>
 					<form id="search">
 						<p>Click on the map to set a location OR</p>
 						<input id="address" type="textbox" placeholder="Search by address">
@@ -24,7 +23,7 @@
 					<%= form_for [@country, @review] do |f| %>
 						<%= f.text_field :title, placeholder: :name %>
 						<br>
-						<%= f.text_field :body, placeholder: :desription %>
+						<%= f.text_field :body, placeholder: :description %>
 						<%= f.hidden_field :latitude %>
 						<%= f.hidden_field :longitude %>
 						<%= f.hidden_field :address %>
@@ -44,6 +43,7 @@
 						<h4><b><%= p.title %></b></h4>
 						<p><%= p.body %></p>
 						<p>Address: <%= p.full_address %></p>
+						<p><%= link_to "full review and comments", country_review_path(p.country, p) %> </p>
 					<% end %>
 				</div>
 			<% end %>
@@ -56,6 +56,7 @@
 						<h4><b><%= p.title %></b></h4>
 						<p><%= p.body %></p>
 						<p>Address: <%= p.full_address %></p>
+						<p><%= link_to "full review and comments", country_review_path(p.country, p) %> </p>
 					<% end %>
 				</div>
 			<% end %>
@@ -68,6 +69,7 @@
 						<h4><b><%= p.title %></b></h4>
 						<p><%= p.body %></p>
 						<p>Address: <%= p.full_address %></p>
+						<p><%= link_to "full review and comments", country_review_path(p.country, p) %> </p>
 					<% end %>
 				</div>
 			<% end %>
@@ -161,11 +163,7 @@
 		  });
 
 
-		  // Zooms in on marker click
-		  google.maps.event.addListener(marker,'click',function() {
-		    map.setZoom(15);
-		    map.setCenter(marker.getPosition());
-		  });
+		 
 
 		 // This is the infowindow
 		  var infowindow = new google.maps.InfoWindow({
@@ -227,10 +225,11 @@
 		      var infoWindow = new google.maps.InfoWindow({
 		          content: "<b>" + title + "</b><br><br>" + body + "<br><br>" + details
 		      });
-		      //
+		      
+		      // Zooms in on marker click
 		      google.maps.event.addListener(marker, 'click', function () {
 		          infoWindow.open(map, this);
-		          map.setZoom(15);
+		          map.setZoom(17);
 		          map.setCenter(marker.getPosition());
 		      });
 		    }

@@ -80,7 +80,7 @@ function openOtherModal() {
   $('.tab.one').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
   $('.tab.two').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
   $('.tab.three').css({"border-top":"solid 2px #f1f1f1", "border-right":"solid 2px #f1f1f1", "border-left":"solid 2px #f1f1f1", "border-bottom":"none"});
-  $('#outeR_review_modal').hide();
+  $('#outer_review_modal').hide();
   $('#restaurant_reviews').hide();
   $('#hotel_reviews').hide();
   $('#other_reviews').show();
