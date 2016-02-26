@@ -155,7 +155,7 @@ p, label {
 	padding-bottom: 2%;
 }
 
-#post_wrapper {
+#review_wrapper {
 	display: inline-block;
 	vertical-align: top;
 	width: 38%;
@@ -214,23 +214,31 @@ p, label {
 	p {
 		padding: 5px;
 	}
+	a {
+		color: $default-light-red;
+	}
 }
 
 #outer_review_modal {
 	position: relative;
 	display: none;
-	width: 100%;
+	width: 60%;
 	height: 90%;
-	background-color:$default-light-red;
-	// box-shadow: 0 0 15px #9e9e9e;
-	// border: #cecece solid 1px;
+	background-color: $default-light-red;
 	margin: 20px auto;
 	overflow: auto;
     z-index: 999999;
     #inner_review_modal {
-    	margin: 15px 0px;
+    	// background-color: #F1F1F1;
+    	margin: 45px auto;
+    	// width: 100%;
+    	// height: 100%;
     }
     #close_post_modal {
+    	display: inline-block;
+    	a{
+    		color: black;
+    	}
     }
 }
 
