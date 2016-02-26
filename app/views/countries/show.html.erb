@@ -72,7 +72,7 @@
 						<h4><b><%= p.title %></b></h4>
 						<p><%= p.body %></p>
 						<p>Address: <%= p.full_address %></p>
-						<p><%= link_to "full review and comments", country_review_path(p.country, p) %> </p>
+						<p><%= link_to "full review and comments (#{p.comments.count})", country_review_path(p.country, p) %> </p>
 					<% end %>
 				</div>
 			<% end %>
@@ -81,24 +81,13 @@
 
 	<!-- Journals -->
 	<div id="volunteer_journals">
-		<h3>Volunteer Journals</h3>
-			<p>Add a new journal for <%= @country.name %></p>
-			<%= form_for [@country, @journal] do |j| %>
-				<%= j.text_field :title, placeholder: :journal_name %>
-				<%= j.text_field :description, placeholder: :description %>
-				<br>
-				<%= j.text_field :link, placeholder: :link_to_journal %>
-				<%= j.text_field :author, placeholder: :journal_author %>
-				<br>
-				<%= j.submit value: "ADD", id: :journal_add_button %>
-			<% end %>
-			<% @journals.each do |j| %>
-				<div id="individual_journals">
-					<p><%= link_to j.title, j.link %></p>
-					<p>Author: <%= j.author %></p>
-					<%= j.description %>
-				</div>
-			<% end %>
+		<% @journals.each do |j| %>
+			<div id="individual_journals">
+				<p><%= link_to j.title, j.link %></p>
+				<p>Author: <%= j.author %></p>
+				<%= j.description %>
+			</div>
+		<% end %>
 	</div>
 
 

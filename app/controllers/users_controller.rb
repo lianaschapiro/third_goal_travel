@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @journals = Journal.where(user_id: @user.id)
   end
 
   def new
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    @journal = Journal.new
   end
 
   def update

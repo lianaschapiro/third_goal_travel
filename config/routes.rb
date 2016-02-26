@@ -18,12 +18,10 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-    resources :users, :regions
+    resources :users, :regions, :journals
 
     resources :countries do
-        resources :journals
-        # , except: [:create]
-        # post 'countries/:country_id', to: 'journals#create', as: "create_journal"
+        
 
         resources :boardposts
         # , except: [:create]

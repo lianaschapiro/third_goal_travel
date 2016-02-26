@@ -1,2 +1,12 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Edit my profile</h1>
+
+<h3>Add your blog</h3>
+	<%= form_for @journal do |j| %>
+		<%= j.text_field :title, placeholder: :title %>
+		<%= j.text_field :description, placeholder: :description %>
+		<br>
+		<%= j.text_field :link, placeholder: :link_to_journal %>
+		<%= j.text_field :author %>
+		<br>
+		<%= j.submit value: "ADD", id: :journal_add_button %>
+	<% end %>

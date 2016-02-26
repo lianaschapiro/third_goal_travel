@@ -1,2 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.fname%> <%= @user.lname %></h1>
+<%# if @user == current_user %>
+
+<!-- <p><%#= @user.fname%> <%#= @user.lname %><p> -->
+<p><%= @user.about %><p>
+<p><%= @user.email %><p>
+	
+<h4>My journal(s)</h4>
+	<% @journals.each do |j| %>
+		<h4><%= link_to j.title, j.link %></h4>
+		<p><%= j.description %><p>
+	<% end %> 

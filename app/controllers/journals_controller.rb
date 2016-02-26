@@ -4,14 +4,14 @@ class JournalsController < ApplicationController
   end
 
   def create
-    @country = Country.find_by_url_name(params[:country_id])
-    @journal = @country.journals.build(journal_params)
+    @journal = Journal.new(journal_params)
+    @journal.user_id = current_user.id
     if @journal.save
       flash[:notice] = "Journal added"
     else
       flash[:notice] = "Unable to add journal"
     end
-    redirect_to country_path(@country)
+    redirect_to user_path(current_user)
   end
 
   def destroy
