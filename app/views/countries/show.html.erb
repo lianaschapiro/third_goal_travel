@@ -6,7 +6,7 @@
 			<p class="left tab one" onclick="openRestaurantModal()">Eat</p>
 			<p class="left tab two" onclick="openHotelModal()">Sleep</p>
 			<p class="left tab three" onclick="openOtherModal()">Play</p>
-			<button class="right" id="add" onclick="openReviewModal()">Add</button>	
+			<button class="right" id="add" onclick="openReviewModal()">Add Review</button>	
 		</div>
 
 		
@@ -15,21 +15,24 @@
 			<div id="inner_review_modal">
 				<h3>Add a Review</h3>
 					<h4 id="close_post_modal" class="right" onclick="closeReviewModal()"><a href="">X</a><h4>
-					<form id="search">
+					<form id="search" class="clear">
 						<p>Click on the map to set a location OR</p>
+						<br>
 						<input id="address" type="textbox" placeholder="Search by address">
 				 		<input id="submit" type="submit" value="Search">
 				 	</form>
+					<br>
 					<%= form_for [@country, @review] do |f| %>
 						<%= f.text_field :title, placeholder: :name %>
+						<br><br>
+						<%= f.text_area :body, placeholder: :description %>
 						<br>
-						<%= f.text_field :body, placeholder: :description %>
 						<%= f.hidden_field :latitude %>
 						<%= f.hidden_field :longitude %>
 						<%= f.hidden_field :address %>
 						<br>
 						<%= f.select :post_type, Review.post_types.keys, prompt: :select %>
-						<br>
+						<br><br>
 						<%= f.submit %>
 					<% end %>
 			</div>
@@ -162,13 +165,6 @@
 		    // position:myCenter,
 		  });
 
-
-		 
-
-		 // This is the infowindow
-		  var infowindow = new google.maps.InfoWindow({
-		     content:"Hello World!"
-		  });
 		  // Opens infowindow on marker click
 		  google.maps.event.addListener(marker, 'click', function() {
 		    infowindow.open(map,marker);
@@ -223,7 +219,7 @@
 		    // anchors infowindow to corresponding / specific marker
 		    function addInfoWindow(marker, title, body, details) {
 		      var infoWindow = new google.maps.InfoWindow({
-		          content: "<b>" + title + "</b><br><br>" + body + "<br><br>" + details
+		          content: "<div id='info_title'>" + title + "</div>" + "<br><div id='info_body'>" + body + "<br><br></div>" + details
 		      });
 		      
 		      // Zooms in on marker click

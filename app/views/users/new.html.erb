@@ -10,11 +10,13 @@
 <% end %>
 
 <%= form_for @user, :html => { :multipart => true } do |f| %>
-	<h3><%=f.label :email %></h3>
-	<%=f.email_field :email %>
-	<br><br>
-	<h3><%=f.label :password %></h3>
-	<%=f.password_field :password %>
-	<br><br><br>
+	<%=f.password_field :fname, placeholder: :first_name %>
+	<br>
+	<%=f.password_field :lname, placeholder: :last_name %>
+	<br>
+	<%=f.email_field :email, placeholder: :email %>
+	<br>
+	<%=f.password_field :password, placeholder: :password %>
+	<br>
 	<%=f.submit %>
 <% end %>

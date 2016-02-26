@@ -50,7 +50,7 @@ nav {
 		li {
 			display: inline-block;
 			margin: 15px;
-			font-weight: bold
+			font-weight: bold;
 		}
 		a {
 			color: black;
@@ -88,6 +88,7 @@ a {
 h3 {
 	display: inline-block;
 	font-size: 20px;
+	margin: 10px;
 }
 #china_background {
 	height: 94vh;
@@ -113,9 +114,26 @@ h4 {
 	font-size: 16px;
 }
 
-p, label {
+p{
 	font-size: 14px;
+}
+
+label, input {
+	font-size: 14px;
+	width: 200px;
 	// display: inline-block;
+}
+
+input[type=submit] {
+	width: auto;
+	padding: 3px;
+	background-color: $default-light-yellow;
+}
+
+textarea {
+	font-size: 14px;
+	width: 200px;
+	height: 100px;
 }
 
 .individual_countries {
@@ -155,6 +173,18 @@ p, label {
 	padding-bottom: 2%;
 }
 
+#info_title {
+	color: $default-light-red;
+	padding: 5px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#info_body {
+	font-size: 14px;
+}
+
+
 #review_wrapper {
 	display: inline-block;
 	vertical-align: top;
@@ -164,8 +194,8 @@ p, label {
 	background-color: $default-light-red;
 	#add {
 		float: right;
-		width: 50px;
-		height: 30px;
+		width: 20%;
+		height: 40px;
 		background-color: white;
 	}
 }
@@ -222,17 +252,15 @@ p, label {
 #outer_review_modal {
 	position: relative;
 	display: none;
-	width: 60%;
+	width: 70%;
 	height: 90%;
 	background-color: $default-light-red;
 	margin: 20px auto;
 	overflow: auto;
-    z-index: 999999;
+    // z-index: ;
     #inner_review_modal {
     	// background-color: #F1F1F1;
     	margin: 45px auto;
-    	// width: 100%;
-    	// height: 100%;
     }
     #close_post_modal {
     	display: inline-block;
