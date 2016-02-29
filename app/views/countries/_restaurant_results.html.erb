@@ -8,9 +8,9 @@
 					<% end %>
 				</div>
 			<% end %>
-			<% if @reviews == [] %>
-				<p>There are no reviews containing the term(s) <%= params[:search] %>.</p>
-			<% end %>
+			<%# if @reviews == [] %>
+				<!-- <p>There are no reviews containing the term(s) <%#= params[:search] %>.</p> -->
+			<%# end %>
 			<%= form_tag(country_path, :method => "get", id: "search-form", remote: :true) do %>
 				<%= text_field_tag :search, params[:search], placeholder: "Search restaurant reviews" %>
 				<%= submit_tag "Search" %>

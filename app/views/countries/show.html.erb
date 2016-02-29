@@ -57,12 +57,18 @@
 	<!-- JOURNALS -->
 	<div id="volunteer_journals">
 		<h3><%= @country.name %> Volunteer Journals</h3>
+
+		
+<% if @journals != [] %>
 		<% @journals.each do |j| %>
 			<div id="individual_journals">
 				<p><%= link_to j.title, j.link %></p>
 				<p><%= j.description %></p>
 				<p>Author: <%= link_to j.user.fname + " " + j.user.lname, user_path(j.user) %>
 			</div>
+			<% else%>
+			<p>None yet...</p>
+				<% end %>
 		<% end %>
 	</div>
 
