@@ -3,10 +3,11 @@ class Review < ActiveRecord::Base
   belongs_to :country
   has_many :comments, dependent: :destroy
 
-  validates_presence_of :title, :body, :latitude, :longitude, :address, :full_address, :user_id, :country_id 
-
   enum post_type: [:restaurant, :hotel, :other]
 
+  validates_presence_of :title, :body
+  validates_presence_of :post_type, :address, :country_id, :user_id, :latitude, :longitude, on: :create
+  
  	geocoded_by :address
 	reverse_geocoded_by :latitude, :longitude, :address => :full_address
 

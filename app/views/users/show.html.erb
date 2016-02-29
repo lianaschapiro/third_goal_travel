@@ -1,12 +1,26 @@
+<!-- User Profile page -->
 <h1><%= @user.fname%> <%= @user.lname %></h1>
-<%# if @user == current_user %>
-
-<!-- <p><%#= @user.fname%> <%#= @user.lname %><p> -->
-<p><%= @user.about %><p>
-<p><%= @user.email %><p>
+	<p><%= @user.about %><p>
+	<p><%= @user.email %><p>
 	
-<h4>My journal(s)</h4>
-	<% @journals.each do |j| %>
-		<h4><%= link_to j.title, j.link %></h4>
-		<p><%= j.description %><p>
-	<% end %> 
+	<!-- User journal(s) -->
+	<h4><%= @user.fname %>'s Journal(s)</h4>
+		<% @journals.each do |j| %>
+			<h4><%= link_to j.title, j.link %></h4>
+			<p><%= j.description %><p>
+			<% if @user = current_user %>	
+				<%=link_to "Remove Journal", j, method: :delete %>
+			<% end %>
+		<% end %> 
+
+	<!-- User reviews -->
+	<h4>Reviews by <%= @user.fname %></h4>
+		<% @reviews.each do |r| %>
+			<h4><%= link_to r.title, country_review_path(r.country, r) %></h4>
+			<p><%= r.body %><p>
+			<% if @user = current_user %>	
+				<%=link_to "Remove Review", country_review_path(r.country, r), method: :delete %>
+			<% end %>
+		<% end %> 
+
+

@@ -3,19 +3,19 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @country = Country.find_by(url_name: params[:id])
+    # @country = Country.find_by(url_name: params[:id])
     @review = Review.find(params[:id])
+    @country = @review.country
     @comment = Comment.new
-    review_id = @review.id
+    @user = @review.user
     @comments = @review.comments.order("created_at DESC")
   end
 
   def create
     @country = Country.find_by_url_name(params[:country_id])
     @review = @country.reviews.build(review_params)
-    # coordinates = Geocoder.coordinates(@post.address)
-    # @post.latitude = coordinates[0]
-    # @post.longitude = coordinates[1]
+    @review.user_id = current_user.id
+    puts @review.user_id
     if @review.save
       flash[:notice] = "Review added"
     else
@@ -26,6 +26,8 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
+    @user = @review.user
+    @country = @review.country
   end
 
   def update
