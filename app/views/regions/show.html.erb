@@ -1,12 +1,15 @@
-<% @countries.each do |c| %>
-		<div class="individual_countries">
-			<a id="country_location" href="<%= country_path(c) %>">
-				<img class="<%=c.name%>" src="/images/<%= c.url_name %>.jpg">
-			<h1 id="individual_country_name"><%= c.name %></h1>
-			 </a>
-			<br>
-		</div>
-	<% end %>
+<h1><%= @region.name %></h1>
+
+	<!-- List of countries in region -->
+	<% @countries.each do |c| %>
+			<div class="individual_countries">
+				<a id="country_location" href="<%= country_path(c) %>">
+					<img class="<%=c.name%>" src="/images/<%= c.url_name %>.jpg">
+				<h1 id="individual_country_name"><%= c.name %></h1>
+				 </a>
+				<br>
+			</div>
+		<% end %>
 
 
 
