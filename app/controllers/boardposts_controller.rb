@@ -1,6 +1,10 @@
 class BoardpostsController < ApplicationController
   def show
     @boardpost = Boardpost.find(params[:id])
+    @country = @boardpost.country
+    @user = @boardpost.user
+    @postcomment = Postcomment.new
+    @postcomments = @boardpost.postcomments.order("created_at DESC")
   end
 
   def create

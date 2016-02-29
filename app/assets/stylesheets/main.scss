@@ -31,8 +31,12 @@ body {
 
 #wrapper {
 	margin-top: 50px;
-	text-align: center;
 	font-size: 0;
+}
+
+.show_wrapper {
+	min-height: 100vh;
+	background-color: $default-orange;
 }
 
 nav {
@@ -50,7 +54,6 @@ nav {
 		li {
 			display: inline-block;
 			margin: 15px;
-			font-weight: bold;
 		}
 		a {
 			color: black;
@@ -126,16 +129,25 @@ p{
 	padding: 5px;
 }
 
-label, input {
+label, input, textarea, select {
 	font-size: 14px;
 	width: 200px;
-	// display: inline-block;
+	padding: 3px;
+	margin: 3px 3px 3px 0;
+	border-radius: 5px;
 }
 
 input[type=submit] {
 	width: auto;
 	padding: 3px;
 	background-color: $default-light-yellow;
+	border-radius: 5px;
+}
+
+button {
+	padding: 3px;
+	background-color: white;
+	border-radius: 5px;
 }
 
 textarea {
@@ -178,6 +190,7 @@ textarea {
 	height: 550px;
 	display: inline-block;
 	padding-bottom: 3%;
+	text-align: center;
 }
 
 #info_title {
@@ -199,11 +212,13 @@ textarea {
 	padding: 1.5%;
 	height: 550px;
 	background-color: $default-light-red;
+	text-align: center;
 	#add {
 		float: right;
 		width: 20%;
 		height: 40px;
 		background-color: white;
+		border-radius: 10px;
 	}
 }
 
@@ -214,6 +229,8 @@ textarea {
 	padding: 10px;
 	font-size: 16px;
 	background-color: $default-light-red;
+	cursor: default;
+	border-radius: 5px 5px 0 0;
 }
 
 .tab.one {
@@ -239,8 +256,9 @@ textarea {
 }
 
 .individual_reviews {
-	background-color: #F1F1F1;
-	margin: 15px 0px;
+	background-color: white;
+	margin: 15px auto;
+	border-radius: 10px;
 	h4 {
 		color: $default-light-red;
 	}
@@ -257,9 +275,7 @@ textarea {
 	background-color: $default-light-red;
 	margin: 20px auto;
 	overflow: auto;
-    // z-index: ;
     #inner_review_modal {
-    	// background-color: #F1F1F1;
     	margin: 45px auto;
     }
     #close_post_modal {
@@ -271,7 +287,6 @@ textarea {
 }
 
 #message_board {
-	text-align: left;
 	width: 57%;
 	background-color: $default-light-yellow;
 	display: inline-block;
@@ -279,18 +294,23 @@ textarea {
 	overflow: auto;
 	padding: 1.5%;
 	#post {
-	font-size: 12px;
-	float: right;
-	width: 60px;
-	height: 30px;
-	background-color: white;
+		font-size: 12px;
+		float: right;
+		width: 60px;
+		height: 30px;
+		background-color: white;
+		border-radius: 10px;
 	}
 	#boardposts {
 		// padding: 10px;
 		#individual_boardposts {
 			margin: 15px 0px;
 			padding: 5px;
+			border-radius: 10px;
 			background-color: white;
+			a {
+				color: $default-red;
+			}
 		}		
 	}
 }
@@ -302,10 +322,12 @@ textarea {
 	height: 550px;
 	padding: 1.5%;
 	display: inline-block;
+	text-align: center;
 	#individual_journals {
 		margin: 15px 0px;
 		padding: 5px;
 		background-color: white;
+		border-radius: 10px;
 		a{
 			color: $default-light-red;
 			font-weight: bold;
@@ -339,7 +361,6 @@ textarea {
     	overflow: auto;
         z-index: 100;
         #close_boardpost_modal {
-
         }
         #submit_new_boardpost {
         	background-color: white;
@@ -358,5 +379,12 @@ textarea {
 		width: 100%;
 	}
 }
+
+#individual_reviews_on_user_profile {
+	@extend .individual_reviews;
+	max-width: 350px;
+	text-align: left;
+}
+
 
 

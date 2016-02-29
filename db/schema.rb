@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226171046) do
+ActiveRecord::Schema.define(version: 20160229193039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 20160226171046) do
   add_index "journals", ["country_id"], name: "index_journals_on_country_id", using: :btree
   add_index "journals", ["user_id"], name: "index_journals_on_user_id", using: :btree
 
+  create_table "postcomments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "boardpost_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "postcomments", ["boardpost_id"], name: "index_postcomments_on_boardpost_id", using: :btree
+  add_index "postcomments", ["user_id"], name: "index_postcomments_on_user_id", using: :btree
+
   create_table "regions", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -107,6 +118,8 @@ ActiveRecord::Schema.define(version: 20160226171046) do
   add_foreign_key "comments", "users"
   add_foreign_key "countries", "regions"
   add_foreign_key "journals", "countries"
+  add_foreign_key "postcomments", "boardposts"
+  add_foreign_key "postcomments", "users"
   add_foreign_key "reviews", "countries"
   add_foreign_key "reviews", "users"
 end

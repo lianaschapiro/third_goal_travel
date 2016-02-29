@@ -3,11 +3,10 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    # @country = Country.find_by(url_name: params[:id])
     @review = Review.find(params[:id])
     @country = @review.country
-    @comment = Comment.new
     @user = @review.user
+    @comment = Comment.new
     @comments = @review.comments.order("created_at DESC")
   end
 
