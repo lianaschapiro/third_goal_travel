@@ -40,36 +40,32 @@
 
 		<!-- Restaurant reviews -->
 		<div id="restaurant_reviews" class="clear">
-			
 			<%= render partial: "restaurant_results" %>
-
 		</div>
 
 		<!-- Hotel reviews -->
 		<div id="hotel_reviews" class="clear">
-			
 			<%= render partial: "hotel_results" %>
-
-			
 		</div>
 		<!-- Other reviews -->
 		<div id="other_reviews" class="clear">
-
 			<%= render partial: "other_results" %>
-
-			
 		</div>
 	</div>
 
 	<!-- Journals -->
 	<div id="volunteer_journals">
 		<h3><%= @country.name %> Volunteer Journals</h3>
-		<% @journals.each do |j| %>
-			<div id="individual_journals">
-				<p><%= link_to j.title, j.link %></p>
-				<p>Author: <%= j.author %></p>
-				<%= j.description %>
-			</div>
+		<% if @journals != [] %>
+			<% @journals.each do |j| %>
+				<div id="individual_journals">
+					<p><%= link_to j.title, j.link %></p>
+					<p>Author: <%= j.author %></p>
+					<%= j.description %>
+				</div>
+			<% end %>
+		<% else%>
+			<p>None yet...</p>
 		<% end %>
 	</div>
 
