@@ -1,6 +1,7 @@
 <!-- This is the country map -->
 	<div id="map"></div>
 
+	<!-- ALL REVIEWS -->
 	<div id="review_wrapper">
 		<div>
 			<p class="left tab one" onclick="openRestaurantModal()">Eat</p>
@@ -9,7 +10,6 @@
 			<button class="right" id="add" onclick="openReviewModal()">Add Review</button>	
 		</div>
 
-		
 		<!--  Create a new review -->
 		<div id="outer_review_modal" class="clear">
 			<div id="inner_review_modal">
@@ -47,30 +47,32 @@
 		<div id="hotel_reviews" class="clear">
 			<%= render partial: "hotel_results" %>
 		</div>
+
 		<!-- Other reviews -->
 		<div id="other_reviews" class="clear">
 			<%= render partial: "other_results" %>
 		</div>
 	</div>
 
-	<!-- Journals -->
+	<!-- JOURNALS -->
 	<div id="volunteer_journals">
 		<h3><%= @country.name %> Volunteer Journals</h3>
-		<% if @journals != [] %>
-			<% @journals.each do |j| %>
-				<div id="individual_journals">
-					<p><%= link_to j.title, j.link %></p>
-					<p>Author: <%= j.author %></p>
-					<%= j.description %>
-				</div>
-			<% end %>
-		<% else%>
+
+		
+<% if @journals != [] %>
+		<% @journals.each do |j| %>
+			<div id="individual_journals">
+				<p><%= link_to j.title, j.link %></p>
+				<p><%= j.description %></p>
+				<p>Author: <%= link_to j.user.fname + " " + j.user.lname, user_path(j.user) %>
+			</div>
+			<% else%>
 			<p>None yet...</p>
+				<% end %>
 		<% end %>
 	</div>
 
-
-	<!-- Message Board -->
+	<!-- MESSAGE BOARD -->
 	<div id="message_board">
 		<h3>Message Board</h3>
 			<button id="post" onclick="openBoardpostModal()">POST</button>
@@ -84,7 +86,8 @@
 				<% end %>
 			</div>
 	</div>
-	<!-- Adding a new boardpost -->
+
+	<!-- New message board post modal -->
 	<div id="outer_boardpost_modal">
 		<div id="inner_boardpost_modal">
 			<p id="close_boardpost_modal" class="right" onclick="closeBoardpostModal()">X</p>

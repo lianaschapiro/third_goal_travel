@@ -6,7 +6,8 @@
 		<%= j.text_field :description, placeholder: :description %>
 		<br>
 		<%= j.text_field :link, placeholder: :link_to_journal %>
-		<%= j.text_field :author %>
+		<%= j.select :country_id, options_from_collection_for_select(@countries, "id", "name"),
+:prompt => "Select country" %>
 		<br>
 		<%= j.submit value: "ADD", id: :journal_add_button %>
 	<% end %>

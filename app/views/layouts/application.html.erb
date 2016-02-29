@@ -38,13 +38,9 @@
 					<li><a href="/sign-up">SIGN UP</a> </li>
 				</ul>
 			<% end %>
-
 			<ul class="middle">
 				<% if @country %>
-				<h1 ><%= @country.name %></h1>
-				<% end %>
-				<% if @region %>
-				<h1 ><%= @region.name %></h1>
+					<h1 ><%= @country.name %></h1>
 				<% end %>
 			</ul>
 		</nav>

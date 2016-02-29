@@ -3,6 +3,8 @@ class Review < ActiveRecord::Base
   belongs_to :country
   has_many :comments, dependent: :destroy
 
+  validates_presence_of :title, :body, :latitude, :longitude, :address, :full_address, :user_id, :country_id 
+
   enum post_type: [:restaurant, :hotel, :other]
 
  	geocoded_by :address
@@ -12,11 +14,7 @@ class Review < ActiveRecord::Base
 
 
 	def self.search(search)
-		# where("title ILIKE ?", "%#{search}%") 
-		
-		# where("body ILIKE ?", "%#{search}")
-		# where("full_address ILIKE ?", "%#{search}%")
-		where("title ILIKE ? OR body ILIKE ?", "%#{search}%", "%#{search}%")
+		where("title ILIKE ? OR body ILIKE ? OR full_address ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
 	end
 
 end
