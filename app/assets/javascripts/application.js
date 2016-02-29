@@ -63,7 +63,6 @@ function openRestaurantModal() {
   $('#hotel_reviews').hide();
   $('#other_reviews').hide();
   $('#restaurant_reviews').show();
-
 };
 // Hotel reviews
 function openHotelModal() {
@@ -85,17 +84,7 @@ function openOtherModal() {
   $('#hotel_reviews').hide();
   $('#other_reviews').show();
 };
-
-// Creating reviews
-function openReviewModal() {
-  $('.tab.one').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
-  $('.tab.two').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
-  $('.tab.three').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
-  $('#restaurant_reviews').hide();
-  $('#hotel_reviews').hide();
-  $('#other_reviews').hide();
-  $('#outer_review_modal').show();
-}
+// Closing the new review modal (for modal opening see countries/show view page)
 function closeReviewModal() {
   $('.tab.one').css({"border-top":"solid 2px #f1f1f1", "border-right":"solid 2px #f1f1f1", "border-left":"solid 2px #f1f1f1", "border-bottom":"none"});
   $('.tab.two').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
@@ -110,7 +99,6 @@ function closeReviewModal() {
 function openBoardpostModal() {
   $('#outer_boardpost_modal').fadeIn(200);
 }
-
 function closeBoardpostModal() {
   $('#outer_boardpost_modal').fadeOut(200);
 }

@@ -27,9 +27,9 @@
 						<br><br>
 						<%= f.text_area :body, placeholder: :description %>
 						<br>
-						<%= f.hidden_field :latitude %>
-						<%= f.hidden_field :longitude %>
-						<%= f.hidden_field :address %>
+						<%= f.text_field :latitude %>
+						<%= f.text_field :longitude %>
+						<%= f.text_field :address %>
 						<br>
 						<%= f.select :post_type, Review.post_types.keys, prompt: :select %>
 						<br><br>
@@ -57,18 +57,16 @@
 	<!-- JOURNALS -->
 	<div id="volunteer_journals">
 		<h3><%= @country.name %> Volunteer Journals</h3>
-
-		
-<% if @journals != [] %>
-		<% @journals.each do |j| %>
-			<div id="individual_journals">
-				<p><%= link_to j.title, j.link %></p>
-				<p><%= j.description %></p>
-				<p>Author: <%= link_to j.user.fname + " " + j.user.lname, user_path(j.user) %>
-			</div>
-			<% else%>
+		<% if @journals != [] %>
+			<% @journals.each do |j| %>
+				<div id="individual_journals">
+					<p><%= link_to j.title, j.link %></p>
+					<p><%= j.description %></p>
+					<p>Author: <%= link_to j.user.fname + " " + j.user.lname, user_path(j.user) %></p>
+				</div>
+			<% end %>
+		<% else %>
 			<p>None yet...</p>
-				<% end %>
 		<% end %>
 	</div>
 
@@ -215,7 +213,21 @@
             });
 		  });
 
-
 		}
 		initialize();
+
+		// Creating reviews in the new review modal
+		function openReviewModal() {
+			<% if current_user %>
+			  $('.tab.one').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
+			  $('.tab.two').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
+			  $('.tab.three').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
+			  $('#restaurant_reviews').hide();
+			  $('#hotel_reviews').hide();
+			  $('#other_reviews').hide();
+			  $('#outer_review_modal').show();
+			 <% else %>
+			 	alert("You must be logged in to write a review")
+			 <% end %>
+		}
 	</script>

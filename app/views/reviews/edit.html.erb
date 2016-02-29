@@ -1,2 +1,17 @@
-<h1>reviews#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>Edit review</h1>
+	<%# if @user == current_user %>
+		<%= form_for [@country, @review] do |f| %>
+			<%= f.text_field :title, placeholder: :name %>
+			<br><br>
+			<%= f.text_area :body, placeholder: :description %>
+			<br>
+			<%= f.hidden_field :latitude %>
+			<%= f.hidden_field :longitude %>
+			<br>
+			<%= f.select :post_type, Review.post_types.keys, prompt: :select %>
+			<br><br>
+			<%= f.submit :update %>
+		<% end %>
+	<%# else %>
+		<!-- <p>You do not have permission to edit this review</p> -->
+	<%# end %>

@@ -22,7 +22,7 @@ class JournalsController < ApplicationController
     else
       flash[:notice] = "Unable to remove journal"
     end
-    redirect_to country_path(@country)
+    redirect_to user_path(current_user)
   end
 
   private
