@@ -1,2 +1,25 @@
-<h1>Boardposts#show</h1>
-<p>Find me in app/views/boardposts/show.html.erb</p>
+<!-- Message board post detail -->
+<h1><%= @boardpost.title %></h1>
+	<h3><%= @boardpost.body %></h3>
+		<p>Posted by <%= @user.fname %> <%= @user.lname %> on <%= @boardpost.created_at.strftime("%b %d, %Y") %></p>
+			<% if @user = current_user %>
+				<p><%= link_to "Delete Post", [@country, @boardpost], method: :delete %></p>
+			<% end %>
+
+
+
+
+<!-- Add a new comment -->
+<h4>Comments</h4>
+	<%= form_for [@boardpost.country, @boardpost, @postcomment] do |c| %>
+		<%= c.text_field :body, placeholder: :what_do_you_think? %>
+		<%= c.submit value: "Comment" %>
+	<% end %>
+
+
+<!-- All comments -->
+<% @postcomments.each do |c| %>
+	<p><%= c.user.fname + " " + c.user.lname %> says...</p>
+	<p><%= c.body %></p>
+	<p><%= time_ago_in_words(c.created_at) %> ago</p>
+<% end %>

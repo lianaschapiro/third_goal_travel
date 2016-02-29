@@ -2,8 +2,7 @@
 <h1><%= @review.title %></h1>
 	<p>(<%= @review.post_type %>)</p>
 		<h3><%= @review.body %></h3>
-			<p>Posted by<%#= @user.fname %><%#= @user.lname %></p>
-				<p>on <%= @review.created_at.strftime("%b %d, %Y") %></p>
+			<p>Posted on <%= @review.created_at.strftime("%b %d, %Y") %> by <%#= @user.fname %><%#= @user.lname %></p>
 					<% if @user == current_user %>
 						<p><%= link_to "Edit Review", edit_country_review_path(@country, @review) %><p>
 						<p><%= link_to "Delete Review", country_review_path(@country, @review), method: :delete %><p>
@@ -21,5 +20,5 @@
 <% @comments.each do |c| %>
 	<p><%= c.user.fname + " " + c.user.lname %> says...</p>
 	<p><%= c.body %></p>
-	<p><%= c.created_at.strftime("%b %d, %Y") %></p>
+	<p><%= time_ago_in_words(c.created_at) %> ago</p>
 <% end %>

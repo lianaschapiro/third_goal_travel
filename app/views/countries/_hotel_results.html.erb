@@ -4,7 +4,7 @@
 						<h4><b><%= p.title %></b></h4>
 						<p><%= p.body %></p>
 						<p>Address: <%= p.full_address %></p>
-						<p><%= link_to "full review and comments", country_review_path(p.country, p) %> </p>
+						<p><%= link_to "full review and comments (#{p.comments.count})", country_review_path(p.country, p) %> </p>
 					<% end %>
 				</div>
 			<% end %>

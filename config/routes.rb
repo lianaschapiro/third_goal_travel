@@ -21,11 +21,9 @@ Rails.application.routes.draw do
     resources :users, :regions, :journals
 
     resources :countries do
-        
-
-        resources :boardposts
-        # , except: [:create]
-        # post 'countries/:id', to: 'boardposts#create', as: "create_boardpost"
+        resources :boardposts do
+          resources :postcomments
+        end
 
         resources :reviews do
           resources :comments

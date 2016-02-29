@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     @journal = Journal.new
-    @countries = Country.all
+    @countries = Country.order("name ASC")
   end
 
   def update

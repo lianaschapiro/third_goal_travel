@@ -27,9 +27,9 @@
 						<br><br>
 						<%= f.text_area :body, placeholder: :description %>
 						<br>
-						<%= f.text_field :latitude %>
-						<%= f.text_field :longitude %>
-						<%= f.text_field :address %>
+						<%= f.hidden_field :latitude %>
+						<%= f.hidden_field :longitude %>
+						<%= f.hidden_field :address %>
 						<br>
 						<%= f.select :post_type, Review.post_types.keys, prompt: :select %>
 						<br><br>
@@ -79,7 +79,7 @@
 					<div id="individual_boardposts">
 						<p><b><%= b.title %></b></p>
 						<p><%= b.body %></p>
-						<button><%= link_to "Delete Post", [b.country, b], method: :delete %></button>
+						<p><%= link_to "full thread and comments", country_boardpost_path(b.country, b) %> </p>
 					</div>
 				<% end %>
 			</div>
