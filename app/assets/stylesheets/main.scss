@@ -12,6 +12,8 @@ $default-red: #8C4646;
 
 body {
 	background-color: #F1F1F1;
+	font-size: 0;
+	text-align: center;
 }
 
 #flash {
@@ -19,7 +21,7 @@ body {
     width: 100%;
     height: 50px;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     background-color: $default-orange;
     color: $default-red;
     text-align: center;
@@ -29,13 +31,16 @@ body {
     }
 }
 
-#wrapper {
+.main {
+	margin: 20vh auto;
+}
+
+.wrapper {
 	margin-top: 50px;
-	font-size: 0;
-	text-align: center;
 }
 
 .show_wrapper {
+	margin-top: 50px;
 	min-height: 100vh;
 	background-color: $default-orange;
 }
@@ -46,6 +51,7 @@ nav {
 	position: fixed;
 	top: 0;
 	background-color: $default-light-yellow;
+	opacity: 0.8;
 	z-index: 10;
 	ul {
 		img {
@@ -57,14 +63,16 @@ nav {
 			margin: 15px;
 		}
 		a {
+			font-size: 16px;
 			color: black;
+			font-weight: bold;
 		}
 	}
 }
 
 #headline {
-	margin: 30px 0px;
-	font-size: 75px;
+	margin: 30px 0px 15px;
+	font-size: 60px;
 }
 
 #go_button {
@@ -78,6 +86,13 @@ nav {
 		color: #000000;
 		font-weight: bold;
 	}
+}
+
+#menu_select {
+	margin-top: 20px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #F1F1F1;
 }
 
 .left {
@@ -97,11 +112,6 @@ nav {
 	clear: both;
 }
 
-.lower {
-	padding-top: 20vh;
-	padding-bottom: 1%;
-}
-
 a {
 	text-decoration: none;
 }
@@ -118,18 +128,23 @@ h2 {
 }
 
 #china_background {
-	height: 94vh;
+	height: 100%;
 	background-image: url('uganda_countryside.jpg');
-	background-position: contain;
 	background-repeat: no-repeat;
-	position: inherit;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
 }
 
 #giraffe_background {
-	height: 94vh;
-	background-image: url('giraffe.jpg');
-	background-position: stretch;
+	height: 100%;
+	background-image: url('angkor.jpg');
 	background-repeat: no-repeat;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
 }
 
 #map-canvas {
@@ -150,7 +165,7 @@ h4 {
 	padding: 5px;
 }
 
-p{
+p {
 	font-size: 14px;
 	padding: 5px;
 }

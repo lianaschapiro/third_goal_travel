@@ -1,9 +1,11 @@
-<h1>All Countries</h1>
-	<% @countries.each do |c| %>
-		<div class="individual_countries">
-			<a href="<%= country_path(c) %>"><img src="/images/<%= c.url_name %>.jpg">
-			<h1 id="individual_country_name"><%= c.name %></h1>
-			 </a>
-			<br>
-		</div>
-	<% end %>
+<div class="wrapper">
+	<h1>All Countries</h1>
+		<% @countries.each do |c| %>
+			<div class="individual_countries">
+				<a href="<%= country_path(c) %>"><img src="/images/<%= c.url_name %>.jpg">
+				<h1 id="individual_country_name"><%= c.name %></h1>
+				 </a>
+				<br>
+			</div>
+		<% end %>
+</div>

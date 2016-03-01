@@ -1,22 +1,24 @@
-<h1>Sign Up</h1>
+<div class="show_wrapper">
+	<h1>Sign Up</h1>
 
-<% if @user.errors.full_messages.any? %>
-	<ul>
-		<% @user.errors.full_messages.each do |e| %>
-			<li> <%= e %></li>
-			<li><br></li>
-		<% end %>
-	</ul>
-<% end %>
+	<% if @user.errors.full_messages.any? %>
+		<ul>
+			<% @user.errors.full_messages.each do |e| %>
+				<li> <%= e %></li>
+				<li><br></li>
+			<% end %>
+		</ul>
+	<% end %>
 
-<%= form_for @user, :html => { :multipart => true } do |f| %>
-	<%=f.password_field :fname, placeholder: :first_name %>
-	<br>
-	<%=f.password_field :lname, placeholder: :last_name %>
-	<br>
-	<%=f.email_field :email, placeholder: :email %>
-	<br>
-	<%=f.password_field :password, placeholder: :password %>
-	<br>
-	<%=f.submit %>
-<% end %>
+	<%= form_for @user, :html => { :multipart => true } do |f| %>
+		<%=f.password_field :fname, placeholder: :first_name %>
+		<br>
+		<%=f.password_field :lname, placeholder: :last_name %>
+		<br>
+		<%=f.email_field :email, placeholder: :email %>
+		<br>
+		<%=f.password_field :password, placeholder: :password %>
+		<br>
+		<%=f.submit %>
+	<% end %>
+</div>
