@@ -183,12 +183,15 @@
 
 		    // anchors infowindow to corresponding / specific marker
 		    function addInfoWindow(marker, title, body, details) {
-		      var infoWindow = new google.maps.InfoWindow({
+		     	infoWindow = new google.maps.InfoWindow({
 		          content: "<div id='info_title'>" + title + "</div>" + "<br><div id='info_body'>" + body + "<br><br></div>" + details
 		      });
 		      
 		      // Zooms in on marker click
 		      google.maps.event.addListener(marker, 'click', function () {
+		        if (infoWindow) {
+        		  infoWindow.close();
+   				}
 		          infoWindow.open(map, this);
 		          map.setZoom(17);
 		          map.setCenter(marker.getPosition());
@@ -197,7 +200,7 @@
 		    // Puts report title + body + details link in infowindow
 		    addInfoWindow(marks,rTitle,rBody,rDetails)
 		    // centers marker and infowindow when marker is clicked
-		    map.setCenter(thung);
+		    // map.setCenter(thung);
 		  }
 		  	// 
 		  google.maps.event.addListener(map, 'click', function(event) {

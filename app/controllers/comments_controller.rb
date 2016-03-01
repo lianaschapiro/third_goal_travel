@@ -1,9 +1,4 @@
 class CommentsController < ApplicationController
-  def index
-  end
-
-  def show
-  end
 
   def new
   end
@@ -21,10 +16,12 @@ class CommentsController < ApplicationController
     redirect_to country_review_path(@country, @review)
   end
 
-  def edit
-  end
-
-  def update
+  def destroy
+    @review = Review.find(params[:review_id])
+    @country = @review.country
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to country_review_path(@country, @review)
   end
 
   private

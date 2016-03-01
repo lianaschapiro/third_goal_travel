@@ -1,13 +1,16 @@
 <h1>Edit my profile</h1>
-
-<h3>Add your blog</h3>
-	<%= form_for @journal do |j| %>
-		<%= j.text_field :title, placeholder: :title %>
-		<%= j.text_field :description, placeholder: :description %>
-		<br>
-		<%= j.text_field :link, placeholder: :link_to_journal %>
-		<%= j.select :country_id, options_from_collection_for_select(@countries, "id", "name"),
-:prompt => "Select country" %>
-		<br>
-		<%= j.submit value: "ADD", id: :journal_add_button %>
-	<% end %>
+<% if current_user && @user == current_user %>
+	<h3>Add a blog</h3>
+		<%= form_for @journal do |j| %>
+			<%= j.text_field :title, placeholder: :title %>
+			<%= j.text_field :description, placeholder: :description %>
+			<br>
+			<%= j.text_field :link, placeholder: :link_to_journal %>
+			<%= j.select :country_id, options_from_collection_for_select(@countries, "id", "name"),
+	:prompt => "Select country" %>
+			<br>
+			<%= j.submit value: "ADD", id: :journal_add_button %>
+		<% end %>
+<% else %>
+	<p>You do not have permission to edit this profile</p>
+<% end %>

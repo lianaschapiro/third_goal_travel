@@ -1,9 +1,4 @@
 class PostcommentsController < ApplicationController
-def index
-  end
-
-  def show
-  end
 
   def new
   end
@@ -21,10 +16,12 @@ def index
     redirect_to country_boardpost_path(@country, @boardpost)
   end
 
-  def edit
-  end
-
-  def update
+  def destroy
+    @boardpost = Boardpost.find(params[:boardpost_id])
+    @country = @boardpost.country
+    @postcomment = Postcomment.find(params[:id])
+    @postcomment.destroy
+    redirect_to country_boardpost_path(@country, @boardpost)
   end
 
   private

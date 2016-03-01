@@ -32,6 +32,7 @@ body {
 #wrapper {
 	margin-top: 50px;
 	font-size: 0;
+	text-align: center;
 }
 
 .show_wrapper {
@@ -293,6 +294,7 @@ textarea {
 	height: 550px;
 	overflow: auto;
 	padding: 1.5%;
+	text-align: left;
 	#post {
 		font-size: 12px;
 		float: right;
@@ -377,6 +379,18 @@ textarea {
 	margin: 20% 1% 2%;
 	img {
 		width: 100%;
+	}
+}
+
+#individual_journals_on_user_profile {
+	margin: 15px auto;
+	padding: 5px;
+	background-color: white;
+	border-radius: 10px;
+	max-width: 350px;
+	a{
+		color: $default-light-red;
+		font-weight: bold;
 	}
 }
 
