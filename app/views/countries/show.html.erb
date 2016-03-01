@@ -131,9 +131,9 @@
 		  });
 
 		  // Opens infowindow on marker click
-		  google.maps.event.addListener(marker, 'click', function() {
-		    infowindow.open(map,marker);
-		    });
+		  // google.maps.event.addListener(marker, 'click', function() {
+		  //   infowindow.open(map,marker);
+		  //   });
 
 		  // This is a new map with a geocoded address
 		  var geocoder = new google.maps.Geocoder();
@@ -185,7 +185,7 @@
 		    function addInfoWindow(marker, title, body, details) {
 		     	infoWindow = new google.maps.InfoWindow({
 		          content: "<div id='info_title'>" + title + "</div>" + "<br><div id='info_body'>" + body + "<br><br></div>" + details
-		      });
+		        });
 		      
 		      // Zooms in on marker click
 		      google.maps.event.addListener(marker, 'click', function () {
