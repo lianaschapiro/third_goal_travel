@@ -62,11 +62,23 @@ nav {
 	}
 }
 
-#title {
-	margin-left: 5px;
-	font-size: 20px;
-	font-style: italic;	
+#headline {
+	margin: 30px 0px;
+	font-size: 75px;
+}
+
+#go_button {
+	margin: 20px;
+	padding: 10px;
+	width: 200px;
+	font-size: 18px;
+	background-color: $default-light-yellow;
+	cursor: default;
+	a {
+		color: #000000;
+		font-weight: bold;
 	}
+}
 
 .left {
 	float: left;
@@ -83,6 +95,11 @@ nav {
 
 .clear {
 	clear: both;
+}
+
+.lower {
+	padding-top: 20vh;
+	padding-bottom: 1%;
 }
 
 a {
@@ -102,8 +119,16 @@ h2 {
 
 #china_background {
 	height: 94vh;
-	background-image: url('greatwallofchina.jpg');
-	background-position: cover;
+	background-image: url('uganda_countryside.jpg');
+	background-position: contain;
+	background-repeat: no-repeat;
+	position: inherit;
+}
+
+#giraffe_background {
+	height: 94vh;
+	background-image: url('giraffe.jpg');
+	background-position: stretch;
 	background-repeat: no-repeat;
 }
 
@@ -115,7 +140,7 @@ h2 {
 
 
 h1 {
-	padding: 1% 0%;
+	padding: 1% 0% 0%;
 	text-align: center;
 	font-size: 30px;
 }

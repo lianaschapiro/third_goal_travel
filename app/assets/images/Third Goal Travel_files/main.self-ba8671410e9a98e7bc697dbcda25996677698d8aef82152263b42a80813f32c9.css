@@ -1,0 +1,448 @@
+/* line 7, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 13, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+body {
+  background-color: #F1F1F1;
+}
+
+/* line 17, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#flash {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  z-index: 100;
+  background-color: #F2AE72;
+  color: #8C4646;
+  text-align: center;
+  line-height: 20px;
+}
+/* line 27, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#flash h3 {
+  margin-top: 15px;
+}
+
+/* line 32, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#wrapper {
+  margin-top: 50px;
+  font-size: 0;
+  text-align: center;
+}
+
+/* line 38, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.show_wrapper {
+  min-height: 100vh;
+  background-color: #F2AE72;
+}
+
+/* line 43, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+nav {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #F2E394;
+  z-index: 10;
+}
+/* line 51, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+nav ul img {
+  margin: 6px;
+  height: 35px;
+}
+/* line 55, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+nav ul li {
+  display: inline-block;
+  margin: 15px;
+}
+/* line 59, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+nav ul a {
+  color: black;
+}
+
+/* line 65, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#headline {
+  margin: 30px 0px;
+  font-size: 75px;
+}
+
+/* line 70, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.left {
+  float: left;
+}
+
+/* line 74, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.right {
+  float: right;
+}
+
+/* line 78, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.middle {
+  text-align: center;
+  margin-left: 17%;
+}
+
+/* line 83, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.clear {
+  clear: both;
+}
+
+/* line 87, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 91, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+h3 {
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px 0px;
+}
+
+/* line 97, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+h2 {
+  font-size: 25px;
+  margin: 10px;
+}
+
+/* line 102, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#china_background {
+  height: 94vh;
+  background-image: url("greatwallofchina.jpg");
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+
+/* line 109, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#map-canvas {
+  height: 85vh;
+  width: 100vw;
+  text-align: center;
+}
+
+/* line 116, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+h1 {
+  padding: 1% 0%;
+  text-align: center;
+  font-size: 30px;
+}
+
+/* line 122, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+h4 {
+  font-size: 16px;
+  padding: 5px;
+}
+
+/* line 127, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+p {
+  font-size: 14px;
+  padding: 5px;
+}
+
+/* line 132, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+label, input, textarea, select {
+  font-size: 14px;
+  width: 200px;
+  padding: 3px;
+  margin: 3px 3px 3px 0;
+  border-radius: 5px;
+}
+
+/* line 140, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+input[type=submit] {
+  width: auto;
+  padding: 3px;
+  background-color: #F2E394;
+  border-radius: 5px;
+}
+
+/* line 147, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+button {
+  padding: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* line 153, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+textarea {
+  font-size: 14px;
+  width: 200px;
+  height: 100px;
+}
+
+/* line 159, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.individual_countries {
+  position: relative;
+  width: 18%;
+  min-width: 200px;
+  margin: 0.5%;
+  display: inline-block;
+}
+/* line 165, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.individual_countries img {
+  width: 100%;
+}
+/* line 168, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.individual_countries #individual_country_name {
+  position: absolute;
+  padding-top: 85px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: black;
+  background: rgba(255, 255, 255, 0.6);
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* line 182, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.individual_countries:hover #individual_country_name {
+  visibility: visible;
+  opacity: 1;
+  transition: 0.2s ease-in;
+}
+
+/* line 188, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#map {
+  width: 61%;
+  height: 550px;
+  display: inline-block;
+  padding-bottom: 3%;
+  text-align: center;
+}
+
+/* line 196, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#info_title {
+  color: #D96459;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* line 203, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#info_body {
+  font-size: 14px;
+}
+
+/* line 208, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#review_wrapper {
+  display: inline-block;
+  vertical-align: top;
+  width: 36%;
+  padding: 1.5%;
+  height: 550px;
+  background-color: #D96459;
+  text-align: center;
+}
+/* line 216, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#review_wrapper #add {
+  float: right;
+  width: 20%;
+  height: 40px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* line 225, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.tab {
+  width: 15%;
+  height: 20px;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #D96459;
+  cursor: default;
+  border-radius: 5px 5px 0 0;
+}
+
+/* line 236, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.tab.one {
+  border-top: solid 2px #f1f1f1;
+  border-left: solid 2px #f1f1f1;
+  border-right: solid 2px #f1f1f1;
+}
+
+/* line 241, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.tab.two, .tab.three, .tab.four {
+  border-bottom: solid 2px #f1f1f1;
+}
+
+/* line 246, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#restaurant_reviews {
+  height: 500px;
+  padding-top: 10px;
+  text-align: left;
+}
+
+/* line 252, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#hotel_reviews, #other_reviews {
+  display: none;
+  padding-top: 10px;
+  text-align: left;
+}
+
+/* line 258, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.individual_reviews, #individual_reviews_on_user_profile {
+  background-color: white;
+  margin: 15px auto;
+  border-radius: 10px;
+}
+/* line 262, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.individual_reviews h4, #individual_reviews_on_user_profile h4 {
+  color: #D96459;
+}
+/* line 265, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+.individual_reviews a, #individual_reviews_on_user_profile a {
+  color: #D96459;
+}
+
+/* line 270, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#outer_review_modal {
+  position: relative;
+  display: none;
+  width: 70%;
+  height: 90%;
+  background-color: #D96459;
+  margin: 20px auto;
+  overflow: auto;
+}
+/* line 278, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#outer_review_modal #inner_review_modal {
+  margin: 45px auto;
+}
+/* line 281, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#outer_review_modal #close_post_modal {
+  display: inline-block;
+}
+/* line 283, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#outer_review_modal #close_post_modal a {
+  color: black;
+}
+
+/* line 289, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#message_board {
+  width: 57%;
+  background-color: #F2E394;
+  display: inline-block;
+  height: 550px;
+  overflow: auto;
+  padding: 1.5%;
+  text-align: left;
+}
+/* line 297, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#message_board #post {
+  font-size: 12px;
+  float: right;
+  width: 60px;
+  height: 30px;
+  background-color: white;
+  border-radius: 10px;
+}
+/* line 307, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#message_board #boardposts #individual_boardposts {
+  margin: 15px 0px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: white;
+}
+/* line 312, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#message_board #boardposts #individual_boardposts a {
+  color: #8C4646;
+}
+
+/* line 319, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#volunteer_journals {
+  vertical-align: top;
+  background-color: #D96459;
+  width: 37%;
+  height: 550px;
+  padding: 1.5%;
+  display: inline-block;
+  text-align: center;
+}
+/* line 327, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#volunteer_journals #individual_journals {
+  margin: 15px 0px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 10px;
+}
+/* line 332, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#volunteer_journals #individual_journals a {
+  color: #D96459;
+  font-weight: bold;
+}
+/* line 337, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#volunteer_journals #journal_add_button {
+  margin-top: 10px;
+  background-color: white;
+  font-size: 12px;
+  height: 30px;
+  width: 60px;
+}
+
+/* line 346, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#outer_boardpost_modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 999997;
+  display: none;
+}
+/* line 354, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#outer_boardpost_modal #inner_boardpost_modal {
+  width: 40%;
+  height: 40%;
+  background-color: #F2E394;
+  box-shadow: 0 0 15px #9e9e9e;
+  border: #cecece solid 1px;
+  margin: 10% auto;
+  padding: 20px;
+  overflow: auto;
+  z-index: 100;
+}
+/* line 366, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#outer_boardpost_modal #inner_boardpost_modal #submit_new_boardpost {
+  background-color: white;
+  font-size: 12px;
+  width: 60px;
+  height: 30px;
+}
+
+/* line 375, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#country_pic {
+  display: inline-block;
+  background-color: #F2E394;
+  margin: 20% 1% 2%;
+}
+/* line 379, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#country_pic img {
+  width: 100%;
+}
+
+/* line 384, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#individual_journals_on_user_profile {
+  margin: 15px auto;
+  padding: 5px;
+  background-color: white;
+  border-radius: 10px;
+  max-width: 350px;
+}
+/* line 390, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#individual_journals_on_user_profile a {
+  color: #D96459;
+  font-weight: bold;
+}
+
+/* line 396, /Users/lianaschapiro/Desktop/third_goal_travel/app/assets/stylesheets/main.scss */
+#individual_reviews_on_user_profile {
+  max-width: 350px;
+  text-align: left;
+}
