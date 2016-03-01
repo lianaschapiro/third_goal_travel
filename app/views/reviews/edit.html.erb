@@ -1,5 +1,5 @@
 <h1>Edit review</h1>
-	<%# if @user == current_user %>
+	<% if current_user && @user == current_user %>
 		<%= form_for [@country, @review] do |f| %>
 			<%= f.text_field :title, placeholder: :name %>
 			<br><br>
@@ -12,6 +12,6 @@
 			<br><br>
 			<%= f.submit :update %>
 		<% end %>
-	<%# else %>
-		<!-- <p>You do not have permission to edit this review</p> -->
-	<%# end %>
+	<% else %>
+		<p>You do not have permission to edit this review</p>
+	<% end %>

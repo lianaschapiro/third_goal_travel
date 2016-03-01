@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
     @review.update(review_params)
     if @review.save
       flash[:notice] = "Thanks for editing"
-      redirect_to country_path(@country)
+      redirect_to country_review_path(@country, @review)
     else
       flash[:notice] = "Unable to edit review"
       render "edit"
