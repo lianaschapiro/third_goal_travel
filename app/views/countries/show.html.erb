@@ -102,9 +102,9 @@
 	</div>
 
 	<!-- Country picture-->
-	<div id="country_pic" class="clear">
+	<!-- <div id="country_pic" class="clear">
 		<img src="/images/<%= @country.url_name%>.jpg">
-	</div>
+	</div> -->
 
 	<!-- Hidden review data to populate map with markers -->
 	<% @reviews.each do |r| %>
@@ -184,15 +184,13 @@
 
 		    // anchors infowindow to corresponding / specific marker
 		    function addInfoWindow(marker, title, body, details) {
-		     	infoWindow = new google.maps.InfoWindow({
+		     	var infoWindow = new google.maps.InfoWindow({
 		          content: "<div id='info_title'>" + title + "</div>" + "<br><div id='info_body'>" + body + "<br><br></div>" + details
 		        });
 		      
 		      // Zooms in on marker click
 		      google.maps.event.addListener(marker, 'click', function () {
-		        if (infoWindow) {
-        		  infoWindow.close();
-   				}
+		      	  infoWindow.close();
 		          infoWindow.open(map, this);
 		          map.setZoom(17);
 		          map.setCenter(marker.getPosition());
@@ -200,8 +198,6 @@
 		    }
 		    // Puts report title + body + details link in infowindow
 		    addInfoWindow(marks,rTitle,rBody,rDetails)
-		    // centers marker and infowindow when marker is clicked
-		    // map.setCenter(thung);
 		  }
 		  	// 
 		  google.maps.event.addListener(map, 'click', function(event) {

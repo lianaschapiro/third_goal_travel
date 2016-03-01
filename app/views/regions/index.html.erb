@@ -1,8 +1,10 @@
-<div id="china_background">
+<div id="taxi_park_background">
 	<div class="main">
-		<h1>Where are you going?</h1>
-		<div id="region_pick">
-			<%= select_tag(:menu_select, options_for_select([['Africa', '/regions/africa'], ['Asia', '/regions/asia'], ['Caribbean', '/regions/caribbean'], ['Central America and Mexico', '/regions/central_america_mexico'], ['Eastern Europe and Central Asia', '/regions/eastern_europe_central_asia'], ['North Africa and the Middle East', '/regions/north_africa_middle_east'], ['Pacific Islands', '/regions/pacific_islands'], ['South America', '/regions/south_america']]), :include_blank => 'Choose Region') %>
+		<div class="wrap">
+			<h1>Where are you going?</h1>
+			<div id="region_pick">
+				<%= select_tag(:menu_select, options_for_select([['Africa', '/regions/africa'], ['Asia', '/regions/asia'], ['Caribbean', '/regions/caribbean'], ['Central America and Mexico', '/regions/central_america_mexico'], ['Eastern Europe and Central Asia', '/regions/eastern_europe_central_asia'], ['North Africa and the Middle East', '/regions/north_africa_middle_east'], ['Pacific Islands', '/regions/pacific_islands'], ['South America', '/regions/south_america']]), :include_blank => 'Choose Region') %>
+			</div>
 		</div>
 	</div>
 </div>
