@@ -148,7 +148,7 @@ h2 {
 #hills_background {
 	height: 100vh;
 	width: 100vw;
-	background-image: url('uganda_countryside.jpg');
+	background-image: image-url('uganda_countryside.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	position: fixed;
@@ -157,7 +157,7 @@ h2 {
 
 #taxi_park_background {
 	@extend #hills_background;	
-	background-image: url('uganda_countryside.jpg');
+	background-image: image-url('uganda_countryside.jpg');
 }
 
 h1 {
