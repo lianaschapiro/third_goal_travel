@@ -11,7 +11,7 @@ class PostcommentsController < ApplicationController
     if @postcomment.save
       flash[:notice] = "Comment posted"
     else
-      flash[:notice] = "Unable to post comment"
+      flash[:notice] = "#{@postcomment.errors.full_messages.first}"
     end
     redirect_to country_boardpost_path(@country, @boardpost)
   end

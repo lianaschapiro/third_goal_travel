@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = "Comment posted"
     else
-      flash[:notice] = "Unable to post comment"
+      flash[:notice] = "#{@comment.errors.full_messages.first}"
     end
     redirect_to country_review_path(@country, @review)
   end

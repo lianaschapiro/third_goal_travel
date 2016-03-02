@@ -26,17 +26,36 @@
 
 			<% if current_user %>
 				<ul class="right">
-					<li><a href="#">ABOUT</a></li>
-					<li><a href="/countries">COUNTRIES</a></li>
-					<li><a href="#">MY ACCOUNT</a></li>
-					<li><a href="/log-out">LOG OUT</a> </li>
+					<li><a href="/about">ABOUT</a></li>
+					<div class="dropdown">
+						<%= link_to "GO", countries_path, class: :dropbtn %>
+							<div class="dropdown-content">
+								<a href="/regions">REGIONS</a>
+								<a href="/countries">COUNTRIES</a>
+							</div>
+					</div>
+					<div class="dropdown">
+						<%= link_to "MY ACCOUNT", user_path(current_user), class: :dropbtn %>
+							<div class="dropdown-content" id="account-menu">
+								<%= link_to "MY PROFILE", user_path(current_user) %>
+								<%= link_to "EDIT ACCOUNT", edit_user_path(current_user) %>
+								<%= link_to "LOG OUT", log_out_path %>
+							</div>
+					</div>
+					
 				</ul>
 			<% else %>
 				<ul class="right">
-					<li><a href="/">HOME</a></li>
-					<li><a href="/countries">COUNTRIES</a></li>
-					<li><a href="/log-in">LOG IN</a></li>
-					<li><a href="/sign-up">SIGN UP</a> </li>
+					<li><a href="/about">ABOUT</a></li>
+					<div class="dropdown">
+						<%= link_to "GO", countries_path, class: :dropbtn %>
+							<div class="dropdown-content">
+								<%= link_to "REGIONS", regions_path %>
+								<%= link_to "COUNTRIES", countries_path %>
+							</div>
+					</div>
+					<li><%= link_to "LOG IN", log_in_path %></li>
+					<li><%= link_to "SIGN UP", sign_up_path %></li>
 				</ul>
 			<% end %>
 			<ul class="middle">

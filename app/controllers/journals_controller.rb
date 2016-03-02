@@ -9,7 +9,7 @@ class JournalsController < ApplicationController
     if @journal.save
       flash[:notice] = "Journal added"
     else
-      flash[:notice] = "Unable to add journal"
+      flash[:notice] = "#{@journal.errors.full_messages.first}"
     end
     redirect_to user_path(current_user)
   end

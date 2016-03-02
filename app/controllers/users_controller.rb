@@ -15,11 +15,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.admin = (params[:admin] == false)
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Thanks for joining!"
       redirect_to root_path
     else
+      flash[:notice] = "#{@user.errors.full_messages.first}"
       render "new"
     end
   end

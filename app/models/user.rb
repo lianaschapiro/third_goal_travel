@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
 	has_many :journals, dependent: :destroy
 	has_many :boardposts, dependent: :destroy
 
-	validates_presence_of :fname, :lname, :email, :password_digest, :admin, :volunteer
+	validates_presence_of :fname, :lname, :email
+	validates_presence_of :password, on: :create
 end

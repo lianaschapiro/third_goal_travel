@@ -14,7 +14,7 @@ class BoardpostsController < ApplicationController
     if @boardpost.save
       flash[:notice] = "Your thoughts have been posted"
     else
-      flash[:notice] = "Unable to post. Try again?"
+      flash[:notice] = "#{@boardpost.errors.full_messages.first}"
     end
     redirect_to country_path(@country)
   end

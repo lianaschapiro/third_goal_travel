@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     if @review.save
       flash[:notice] = "Review added"
     else
-      flash[:notice] = "Unable to add review"
+      flash[:notice] = "#{@review.errors.full_messages.first}"
     end
     redirect_to country_path(@country)
   end
