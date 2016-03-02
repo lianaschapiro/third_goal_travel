@@ -11,14 +11,19 @@
 	<% end %>
 
 	<%= form_for @user, :html => { :multipart => true } do |f| %>
-		<%=f.password_field :fname, placeholder: "first name" %>
+		<%=f.text_field :fname, placeholder: "first name" %>
 		<br>
-		<%=f.password_field :lname, placeholder: "last name" %>
+		<%=f.text_field :lname, placeholder: "last name" %>
 		<br>
 		<%=f.email_field :email, placeholder: "email" %>
 		<br>
 		<%=f.password_field :password, placeholder: "password" %>
 		<br>
-		<%=f.submit %>
+		<%#= f.check_box :admin, {}, "true", "false" %>
+		<br>
+		<%= f.check_box :volunteer, {}, "true", "false" %>
+		<%= f.label :volunteer, "Check here if you are a PCV or RPCV", class: :inline %>
+		<br>
+		<%= f.submit %>
 	<% end %>
 </div>
