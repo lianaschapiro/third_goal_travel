@@ -43,7 +43,8 @@ body {
 }
 
 .show_wrapper {
-	margin-top: 50px;
+	top: 0;
+	padding-top: 50px;
 	min-height: 100vh;
 	background-color: $default-light-red;
 	h1 {
@@ -245,12 +246,22 @@ hr {
 	margin: 0 auto;
 }
 
-#pc-mission {
-	background-color: $default-light-yellow;
-	margin: 0px 50px;
+#pc_about {
+	width: 50%;
+	padding: 1%;
+	margin: 1% 5%;
 	border-radius: 50px;
-	padding: 25px;
-	max-width: 350px;
+	h4 {
+		margin: 2%;
+	}
+}
+
+#pc_mission {
+	background-color: $default-light-yellow;
+	margin: 0 4% 5% 0%;
+	border-radius: 50px;
+	padding: 2%;
+	width: 25%;
 }
 
 label, input, textarea, select {
@@ -431,14 +442,18 @@ textarea {
 	padding: 1.5%;
 	display: inline-block;
 	text-align: center;
-	#individual_journals {
-		margin: 15px 0px;
-		padding: 5px;
-		background-color: white;
-		border-radius: 10px;
-		a{
-			color: $default-light-red;
-			font-weight: bold;
+	#all_journals {
+		height: 500px;
+		overflow: scroll;
+		#individual_journals {
+			margin: 15px 0px;
+			padding: 5px;
+			background-color: white;
+			border-radius: 10px;
+			a{
+				color: $default-light-red;
+				font-weight: bold;
+			}
 		}
 	}
 	#journal_add_button {
@@ -466,8 +481,9 @@ textarea {
 		background-color: white;
 		border-radius: 10px;
 	}
-	#boardposts {
-		// padding: 10px;
+	#all_boardposts {
+		height: 500px;
+		overflow: scroll;
 		#individual_boardposts {
 			margin: 15px 0px;
 			padding: 5px;
@@ -511,39 +527,28 @@ textarea {
     }
 }
 
-// #country_pic {
-// 	display: inline-block;
-// 	background-color: $default-light-yellow;
-// 	img {
-// 		width: 100%;
-// 	}
-// }
-
-#individual_journals_on_user_profile {
-	margin: 15px auto;
-	padding: 5px;
+#individual_reviews_on_user_profile, #individual_journals_on_user_profile {
 	background-color: white;
+	margin: 15px;
 	border-radius: 10px;
-	max-width: 350px;
+	width: 350px;
+	text-align: left;
+	display: inline-block;
 	a{
 		color: $default-light-red;
 		font-weight: bold;
 	}
-}
-
-#individual_reviews_on_user_profile {
-	@extend .individual_reviews;
-	margin: 15px;
-	width: 350px;
-	text-align: left;
-	display: inline-block;
-	#delete_review {
+	.delete{
 		display: inline-block;
 		padding: 5px;
 		font-size: 14px;
 	}
 }
 
+.icon {
+	padding-top: 20px;
+	height: 50px;
+}
 .individual_comments {
 	padding: 3px;
 	margin: 0px auto 10px;

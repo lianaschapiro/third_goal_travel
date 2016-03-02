@@ -4,24 +4,27 @@
 		<h4><%= @user.about %><h4>
 		<p><%= @user.email %><p>
 			<% if @user == current_user %>
-				<p><%=link_to "Edit my profile", edit_user_path(@user) %></p>
+				<p><%=link_to "EDIT MY PROFILE", edit_user_path(@user) %></p>
 			<% end %>
 		
 		<!-- User journal(s) -->
 		<h3><%= @user.fname %>'s Journal(s)</h3>
+		<br>
 			<% if @journals != [] %>
 				<% @journals.each do |j| %>
 					<div id="individual_journals_on_user_profile">
-						<h4><%= link_to j.title, j.link %></h4>
-						<p><%= j.description %><p>
+						<h4 class="inline"><%= link_to j.title, j.link %></h4>
 						<% if current_user && @user == current_user %>	
-							<%=link_to "Remove Journal", j, method: :delete %>
+							<%=link_to "Remove Journal", j, method: :delete, class: "right delete" %>
 						<% end %>
+						<p p class="clear"><%= j.description %><p>
+						
 					</div>
 				<% end %> 
 			<% else %>
 				<p><%= @user.fname %> has not added any journals</p>
 			<% end %>
+			<br>
 
 		<!-- User reviews -->
 		<h3>Reviews by <%= @user.fname %></h3>
@@ -31,7 +34,7 @@
 					<div id="individual_reviews_on_user_profile">
 						<h4 class="inline"><%= link_to r.title, country_review_path(r.country, r) %></h4>
 						<% if current_user && @user == current_user %>	
-							<%=link_to "Remove Review", country_review_path(r.country, r), method: :delete, id: :delete_review, class: :right %>
+							<%=link_to "Remove Review", country_review_path(r.country, r), method: :delete, class: "right delete" %>
 						<% end %>
 						<p class="clear"><%= r.body %><p>
 						
