@@ -47,7 +47,7 @@ body {
 	min-height: 100vh;
 	background-color: $default-light-red;
 	h1 {
-		padding: 20px;
+		padding: 20px 20px 10px;
 	}
 	input[type=submit] {
 		margin-top: 10px;
@@ -79,6 +79,9 @@ nav {
 			font-size: 16px;
 			color: black;
 			font-weight: bold;
+		}
+		#country_name a {
+			font-size: 30px;
 		}
 	}
 }
@@ -133,6 +136,10 @@ nav {
 
 .clear {
 	clear: both;
+}
+
+.inline {
+	display: inline-block;
 }
 
 #region_index_wrap {
@@ -190,6 +197,11 @@ h4 {
 p {
 	font-size: 14px;
 	padding: 5px;
+}
+
+hr {
+	width: 50%;
+	margin: 0 auto;
 }
 
 label, input, textarea, select {
@@ -463,5 +475,25 @@ textarea {
 	text-align: left;
 }
 
+.individual_comments {
+	padding: 3px;
+	margin: 0px auto 10px;
+	background-color: #F1F1F1;
+	width: 300px;
+	border-radius: 10px;
+	text-align: left;
+	.time_posted {
+		font-size: 12px;
+	}
+	a {
+		color: $default-light-red;
+		font-size: 14px;
+		display: inline-block;
+		font-weight: bold;
+	}
+	#delete_comment {
+		padding: 5px;
+	}
+}
 
 

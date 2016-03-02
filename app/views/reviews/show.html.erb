@@ -1,29 +1,30 @@
 <!-- Review detail -->
 <div class="show_wrapper">
 	<h1><%= @review.title %></h1>
-		<p>(<%= @review.post_type %>)</p>
-			<h3><%= @review.body %></h3>
-				<p>Posted on <%= @review.created_at.strftime("%b %d, %Y") %> by <%#= @user.fname %><%#= @user.lname %></p>
-						<% if current_user && @user == current_user %>
-							<p><%= link_to "Edit Review", edit_country_review_path(@country, @review) %><p>
-							<p><%= link_to "Delete Review", country_review_path(@country, @review), method: :delete %><p>
-						<% end %>
-						<hr>
+		<h3><%= @review.body %></h3>
+			<p>Posted on <%= @review.created_at.strftime("%b %d, %Y") %> by <%#= @user.fname %><%#= @user.lname %></p>
+					<% if current_user && @user == current_user %>
+						<p><%= link_to "Edit Review", edit_country_review_path(@country, @review) %><p>
+						<p><%= link_to "Delete Review", country_review_path(@country, @review), method: :delete %><p>
+					<% end %>
+					<hr>
 
 	<!-- Add a new comment -->
-	<h4>Comments</h4>
-		<%= form_for [@review.country, @review, @comment] do |c| %>
-			<%= c.text_field :body, placeholder: :what_do_you_think? %>
-			<%= c.submit value: "Comment" %>
-		<% end %>
+	<%= form_for [@review.country, @review, @comment] do |c| %>
+		<%= c.text_field :body, placeholder: :what_do_you_think? %>
+		<%= c.submit value: "Comment" %>
+	<% end %>
 
 	<!-- All comments -->
-	<% @comments.each do |c| %>
-		<p><%= c.user.fname + " " + c.user.lname %> says...</p>
-		<p><%= c.body %></p>
-		<p><%= time_ago_in_words(c.created_at) %> ago</p>
-		<% if current_user && c.user == current_user %>
-			<p><%= link_to "Delete Comment", country_review_comment_path(@country, @review, c), method: :delete %><p>
+	<h3>Comments</h3>
+		<% @comments.each do |c| %>
+		<div class="individual_comments">
+			<p class="inline"><%= link_to c.user.fname + " " + c.user.lname, user_path(c.user) %> says...</p>
+				<% if current_user && c.user == current_user %>
+					<%= link_to "Delete Comment", country_review_comment_path(@country, @review, c), method: :delete, class: :right, id: :delete_comment%>
+				<% end %>
+				<p class="clear"><%= c.body %></p>
+				<p class="time_posted"><%= time_ago_in_words(c.created_at) %> ago</p>
+			</div>
 		<% end %>
-	<% end %>
 </div>

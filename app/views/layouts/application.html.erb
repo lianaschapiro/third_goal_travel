@@ -41,7 +41,7 @@
 			<% end %>
 			<ul class="middle">
 				<% if @country %>
-					<h1 ><%= @country.name %></h1>
+					<h1 id="country_name"><%= link_to @country.name, country_path(@country) %></h1>
 				<% end %>
 			</ul>
 		</nav>
