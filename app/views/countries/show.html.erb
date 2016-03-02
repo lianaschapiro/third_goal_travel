@@ -103,11 +103,6 @@
 		</div>
 	</div>
 
-	<!-- Country picture-->
-	<!-- <div id="country_pic" class="clear">
-		<img src="/images/<%= @country.url_name%>.jpg">
-	</div> -->
-
 	<!-- Hidden review data to populate map with markers -->
 	<% @reviews.each do |r| %>
 		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "see details", country_review_path(r.country, r) %>'>
@@ -117,6 +112,7 @@
 	<!-- Javascript to create country map -->
 	<script type="text/javascript">
 		function initialize() {
+			
 		  var myCenter = new google.maps.LatLng(<%= @country.latitude %>, <%= @country.longitude %>)
 		  var mapProp = {
 		    scrollwheel: false,
@@ -189,24 +185,24 @@
 		     	var infoWindow = new google.maps.InfoWindow({
 		          content: "<div id='info_title'>" + title + "</div>" + "<br><div id='info_body'>" + body + "<br><br></div>" + details
 		        });
-		      
-		      // Zooms in on marker click
-		      google.maps.event.addListener(marker, 'click', function () {
-		      	  infoWindow.close();
+		     
+		        // Zooms in on marker click
+		        google.maps.event.addListener(marker, 'click', function () {
+		        	console.log(infoWindow)
 		          infoWindow.open(map, this);
 		          map.setZoom(17);
 		          map.setCenter(marker.getPosition());
-		      });
+		        });
 		    }
 		    // Puts report title + body + details link in infowindow
-		    addInfoWindow(marks,rTitle,rBody,rDetails)
+		    addInfoWindow(marks,rTitle,rBody,rDetails) 
 		  }
-		  	// 
+		  // Adds marker wherever you click
 		  google.maps.event.addListener(map, 'click', function(event) {
-			marker.setDraggable(true);
-			marker.setPosition(event.latLng);
-			marker.setMap(map);
-			marker.setAnimation(google.maps.Animation.DROP);
+				marker.setDraggable(true);
+				marker.setPosition(event.latLng);
+				marker.setMap(map);
+				marker.setAnimation(google.maps.Animation.DROP);
 				populateInputs(event.latLng);
 	
 
@@ -232,8 +228,7 @@
 			  $('#hotel_reviews').hide();
 			  $('#other_reviews').hide();
 			  $('#outer_review_modal').show();
-			 	
-			 <% end %>
+			<% end %>
 		}
 
 		// Creating new message board posts
