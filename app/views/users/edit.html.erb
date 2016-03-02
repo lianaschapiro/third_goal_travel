@@ -9,7 +9,7 @@
 				<br>
 				<%=f.email_field :email, value: @user.email %>
 				<br>
-				<%=f.text_field :about, value: @user.about, placeholder: "tell us about yourself" %>
+				<%=f.text_area :about, value: @user.about, placeholder: "tell us about yourself" %>
 				<br>
 				<%=f.password_field :password, value: @user.password %>
 				<br>
@@ -17,16 +17,20 @@
 			<% end %>
 
 			<!-- Add a journal -->
-			<h3>Add a blog</h3>
-				<%= form_for @journal do |j| %>
-					<%= j.text_field :title, placeholder: :title %>
-					<%= j.text_field :description, placeholder: :description %>
-					<br>
-					<%= j.text_field :link, placeholder: :link_to_journal %>
-					<%= j.select :country_id, options_from_collection_for_select(@countries, "id", "name"),
-			:prompt => "Select country" %>
-					<br>
-					<%= j.submit value: "Add", id: :journal_add_button %>
+			<h3>Add your blog</h3>
+				<% if @user.volunteer == true %>
+					<%= form_for @journal do |j| %>
+						<%= j.text_field :title, placeholder: :title %>
+						<%= j.text_field :description, placeholder: :description %>
+						<br>
+						<%= j.text_field :link, placeholder: :link_to_journal %>
+						<%= j.select :country_id, options_from_collection_for_select(@countries, "id", "name"),
+				:prompt => "Select country" %>
+						<br>
+						<%= j.submit value: "Add", id: :journal_add_button %>
+					<% end %>
+				<% else %>
+					<p>Only Peace Corps Volunteers can add journals here. If you are not a volunteer, please add a link to your journal where it says "tell us about yourself" above.</p>
 				<% end %>
 		<% else %>
 			<p>You do not have permission to edit this profile</p>

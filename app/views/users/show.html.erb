@@ -2,9 +2,9 @@
 <div class="show_wrapper">
 	<h1><%= @user.fname%> <%= @user.lname %></h1>
 		<h4><%= @user.about %><h4>
-		<p><%= @user.email %><p>
 			<% if @user == current_user %>
-				<p><%=link_to "EDIT MY PROFILE", edit_user_path(@user) %></p>
+				<p><%= @user.email %><br><i>Your email is visible only to you - if you want others to be able to contact you, please put your email in your "about" section.<i></p>
+					<p><%=link_to "EDIT MY PROFILE", edit_user_path(@user) %></p>
 			<% end %>
 		
 		<!-- User journal(s) -->
