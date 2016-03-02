@@ -11,13 +11,13 @@
 	<% end %>
 
 	<%= form_for @user, :html => { :multipart => true } do |f| %>
-		<%=f.password_field :fname, placeholder: :first_name %>
+		<%=f.password_field :fname, placeholder: "first name" %>
 		<br>
-		<%=f.password_field :lname, placeholder: :last_name %>
+		<%=f.password_field :lname, placeholder: "last name" %>
 		<br>
-		<%=f.email_field :email, placeholder: :email %>
+		<%=f.email_field :email, placeholder: "email" %>
 		<br>
-		<%=f.password_field :password, placeholder: :password %>
+		<%=f.password_field :password, placeholder: "password" %>
 		<br>
 		<%=f.submit %>
 	<% end %>

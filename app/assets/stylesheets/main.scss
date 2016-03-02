@@ -32,11 +32,14 @@ body {
 }
 
 .main {
-	margin: 20vh auto;
+	margin: 18vh auto;
 }
 
 .wrapper {
 	margin-top: 50px;
+	position: absolute;
+	top:0;
+	width: 100%;
 }
 
 .show_wrapper {
@@ -61,6 +64,9 @@ nav {
 	opacity: 0.9;
 	z-index: 10;
 	ul {
+		h1 {
+			margin-top: 7px;
+		}
 		img {
 			margin: 6px;
 			height: 35px;
@@ -78,16 +84,16 @@ nav {
 }
 
 .wrap {
-	background-color: rgba(0, 0, 0, .2);
+	// background-color: rgba(242,227,148, .8);
 	max-width: 800px;
 	margin: 0 auto;
-	padding: 20px;
+	// padding: 20px;
 	border-radius: 10px;
-	color: $default-light-yellow;
+	color: $default-red;
 }
 
 #headline {
-	margin: 30px 0px 15px;
+	margin: 20px 0px 25px;
 	font-size: 70px;
 	font-family: 'Architects Daughter', cursive;
 
@@ -96,12 +102,11 @@ nav {
 #go_button {
 	margin: 25px;
 	padding: 10px;
-	width: 150px;
+	width: 120px;
 	font-size: 18px;
-	background-color: $default-light-yellow;
+	background-color: rgba(242,227,148, .8);
 	cursor: default;
 	a {
-		color: #000000;
 		font-weight: bold;
 	}
 }
@@ -130,6 +135,18 @@ nav {
 	clear: both;
 }
 
+#region_index_wrap {
+	// color: $default-red;
+	// background-color: rgba(242,227,148, .8);
+	margin: 0 auto;
+	// width: 400px;
+	padding: 20px 0px;
+	border-radius: 10px;
+	h1{
+		font-size: 35px;
+	}
+}
+
 a {
 	text-decoration: none;
 }
@@ -145,23 +162,22 @@ h2 {
 	margin: 10px;
 }
 
-#hills_background {
+#angkor_background {
 	height: 100vh;
 	width: 100vw;
-	background-image: image-url('uganda_countryside.jpg');
+	background-image: image-url('angkor.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	position: fixed;
 	top: 0;
 }
 
-#taxi_park_background {
-	@extend #hills_background;	
+#hills_background {
+	@extend #angkor_background;	
 	background-image: image-url('uganda_countryside.jpg');
 }
 
 h1 {
-	padding: 1% 0% 0%;
 	text-align: center;
 	font-size: 30px;
 }
@@ -234,7 +250,7 @@ textarea {
 
 #map {
 	width: 61%;
-	height: 550px;
+	height: 77vh;
 	display: inline-block;
 	padding-bottom: 3%;
 	text-align: center;
@@ -257,7 +273,7 @@ textarea {
 	vertical-align: top;
 	width: 36%;
 	padding: 1.5%;
-	height: 550px;
+	height: 77vh;
 	background-color: $default-light-red;
 	text-align: center;
 	#add {
@@ -325,12 +341,39 @@ textarea {
     #inner_review_modal {
     	margin: 45px auto;
     }
-    #close_post_modal {
+    #close_review_modal {
     	display: inline-block;
     	a{
     		color: black;
     	}
     }
+}
+
+#volunteer_journals {
+	vertical-align: top;
+	background-color: $default-light-red;
+	width: 37%;
+	height: 550px;
+	padding: 1.5%;
+	display: inline-block;
+	text-align: center;
+	#individual_journals {
+		margin: 15px 0px;
+		padding: 5px;
+		background-color: white;
+		border-radius: 10px;
+		a{
+			color: $default-light-red;
+			font-weight: bold;
+		}
+	}
+	#journal_add_button {
+		margin-top: 10px;
+		background-color: white;
+		font-size: 12px;
+		height: 30px;
+		width: 60px;
+	}
 }
 
 #message_board {
@@ -363,32 +406,7 @@ textarea {
 	}
 }
 
-#volunteer_journals {
-	vertical-align: top;
-	background-color: $default-light-red;
-	width: 37%;
-	height: 550px;
-	padding: 1.5%;
-	display: inline-block;
-	text-align: center;
-	#individual_journals {
-		margin: 15px 0px;
-		padding: 5px;
-		background-color: white;
-		border-radius: 10px;
-		a{
-			color: $default-light-red;
-			font-weight: bold;
-		}
-	}
-	#journal_add_button {
-		margin-top: 10px;
-		background-color: white;
-		font-size: 12px;
-		height: 30px;
-		width: 60px;
-	}
-}
+
 
 #outer_boardpost_modal {
 	position: fixed;
