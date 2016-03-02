@@ -5,6 +5,7 @@ class CountriesController < ApplicationController
 
   def show
     set_country
+    @user = current_user
     @journal = Journal.new
     @journals = @country.journals.order("created_at DESC")
     @boardpost = Boardpost.new

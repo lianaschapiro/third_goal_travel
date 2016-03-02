@@ -220,7 +220,11 @@
 
 		// Creating reviews in the new review modal
 		function openReviewModal() {
-			<% if current_user %>
+			<% if current_user == nil %>
+				alert("You must be logged in to write a review")
+			<% elsif @user.volunteer == false %>
+				alert("Only Peace Corps Volunteers can write reviews. You can still post on the message board and make comments, though!")
+			<% else %>
 			  $('.tab.one').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
 			  $('.tab.two').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
 			  $('.tab.three').css({"border-top":"none", "border-right":"none", "border-left":"none", "border-bottom":"solid 2px #f1f1f1"});
@@ -228,15 +232,14 @@
 			  $('#hotel_reviews').hide();
 			  $('#other_reviews').hide();
 			  $('#outer_review_modal').show();
-			 <% else %>
-			 	alert("You must be logged in to write a review")
+			 	
 			 <% end %>
 		}
 
 		// Creating new message board posts
 		function openBoardpostModal() {
 			<% if current_user %>
-			  $('#outer_boardpost_modal').fadeIn(200);
+			    $('#outer_boardpost_modal').fadeIn(200);
 			<% else %>
 			 	alert("You must be logged in to write a post")
 			<% end %>
