@@ -58,24 +58,26 @@
 	<!-- JOURNALS -->
 	<div id="volunteer_journals">
 		<h3><%= @country.name %> Volunteer Journals</h3>
-		<% if @journals != [] %>
-			<% @journals.each do |j| %>
-				<div id="individual_journals">
-					<p><%= link_to j.title, j.link %></p>
-					<p><%= j.description %></p>
-					<p>Author: <%= link_to j.user.fname + " " + j.user.lname, user_path(j.user) %></p>
-				</div>
+		<div id="all_journals">
+			<% if @journals != [] %>
+				<% @journals.each do |j| %>
+					<div id="individual_journals">
+						<p><%= link_to j.title, j.link %></p>
+						<p><%= j.description %></p>
+						<p>Author: <%= link_to j.user.fname + " " + j.user.lname, user_path(j.user) %></p>
+					</div>
+				<% end %>
+			<% else %>
+				<p>None yet...</p>
 			<% end %>
-		<% else %>
-			<p>None yet...</p>
-		<% end %>
+		</div>
 	</div>
 
 	<!-- MESSAGE BOARD -->
 	<div id="message_board">
 		<h3>Message Board</h3>
 			<button id="post" onclick="openBoardpostModal()">POST</button>
-			<div id="boardposts">
+			<div id="all_boardposts">
 				<% @boardposts.each do |b| %>
 					<div id="individual_boardposts">
 						<p><b><%= b.title %></b></p>
