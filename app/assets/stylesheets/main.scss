@@ -3,6 +3,7 @@ $default-light-yellow: #F2E394;
 $default-orange: #F2AE72;
 $default-light-red: #D96459;
 $default-red: #8C4646;
+$default-gray: #F1F1F1;
 
 * {
 	margin: 0;
@@ -33,6 +34,9 @@ body {
 
 .main {
 	margin: 18vh auto;
+	max-width: 800px;
+	border-radius: 10px;
+	color: $default-red;
 }
 
 .wrapper {
@@ -125,13 +129,6 @@ nav {
     display: block;
 }
 
-.wrap {
-	max-width: 800px;
-	margin: 0 auto;
-	border-radius: 10px;
-	color: $default-red;
-}
-
 #headline {
 	margin: 20px 0px 25px;
 	font-size: 70px;
@@ -184,10 +181,8 @@ nav {
 }
 
 #region_index_wrap {
-	// color: $default-red;
-	// background-color: rgba(242,227,148, .8);
+	color: #000000;
 	margin: 0 auto;
-	// width: 400px;
 	padding: 20px 0px;
 	border-radius: 10px;
 	h1{
