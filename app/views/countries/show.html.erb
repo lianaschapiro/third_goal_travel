@@ -230,5 +230,14 @@
 			 	alert("You must be logged in to write a review")
 			 <% end %>
 		}
+
+		// Creating new message board posts
+		function openBoardpostModal() {
+			<% if current_user %>
+			  $('#outer_boardpost_modal').fadeIn(200);
+			<% else %>
+			 	alert("You must be logged in to write a post")
+			<% end %>
+		}
 	</script>
 </div>

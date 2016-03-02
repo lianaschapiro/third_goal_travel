@@ -95,10 +95,7 @@ function closeReviewModal() {
   $('#restaurant_reviews').show();
 }
 
-// Creating message board posts
-function openBoardpostModal() {
-  $('#outer_boardpost_modal').fadeIn(200);
-}
+// Closing the new message board modal (for modal opening see countries/show view page)
 function closeBoardpostModal() {
   $('#outer_boardpost_modal').fadeOut(200);
 }
