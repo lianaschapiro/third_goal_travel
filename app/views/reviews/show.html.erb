@@ -5,8 +5,8 @@
 			<h3><%= @review.body %></h3>
 				<p>Posted on <%= @review.created_at.strftime("%b %d, %Y") %> by <%= @user.fname %> <%= @user.lname %></p>
 						<% if current_user && @user == current_user %>
-							<p><%= link_to "Edit Review", edit_country_review_path(@country, @review) %><p>
-							<p><%= link_to "Delete Review", country_review_path(@country, @review), method: :delete %><p>
+							<p class="inline"><%= link_to "Edit Review", edit_country_review_path(@country, @review) %></p>
+							<p class="inline">&#9733; &nbsp;<%= link_to "Delete Review", country_review_path(@country, @review), method: :delete %></p>
 						<% end %>
 						<hr>
 

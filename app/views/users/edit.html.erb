@@ -32,6 +32,9 @@
 				<% else %>
 					<p>Only Peace Corps Volunteers can add journals here. If you are not a volunteer, please add a link to your journal where it says "tell us about yourself" above.</p>
 				<% end %>
+
+				<!-- Delete user account -->
+				<h4 id="delete_account"><%= link_to "DELETE MY ACCOUNT - DANGER!", @user, method: :delete, data: {confirm: "Are you sure you want to delete your account? No going back now!"} %></h4>
 		<% else %>
 			<p>You do not have permission to edit this profile</p>
 		<% end %>

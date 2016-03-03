@@ -105,7 +105,7 @@
 
 	<!-- Hidden review data to populate map with markers -->
 	<% @reviews.each do |r| %>
-		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body %>' data-details='<%= link_to "see details", country_review_path(r.country, r) %>'>
+		<div class="load_all_markers" data-thang='{"lat": <%= r.latitude %>, "lng": <%= r.longitude %>}' data-title='<%= r.title %>' data-body='<%= r.body.truncate_words(15) %>' data-details='<%= link_to "see details", country_review_path(r.country, r) %>'>
 		</div>
 	<% end %>
 
@@ -188,10 +188,10 @@
 		        	if (prev_infowindow){
 		        		prev_infowindow.close();
 		        	}
-							prev_infowindow = infoWindow
-		          infoWindow.open(map, this);
-		          map.setZoom(17);
-		          map.setCenter(marker.getPosition());
+				    prev_infowindow = infoWindow
+		            infoWindow.open(map, this);
+		            map.setZoom(16);
+		            map.setCenter(marker.getPosition());
 		        });
 		    }
 		    // Puts report title + body + details link in infowindow
