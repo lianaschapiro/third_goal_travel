@@ -36,7 +36,7 @@
 						<% if current_user && @user == current_user %>	
 							<%=link_to "Remove Review", country_review_path(r.country, r), method: :delete, class: "right delete" %>
 						<% end %>
-						<p class="clear"><%= r.body %><p>
+						<p class="clear"><%= r.body.truncate_words(15) %><p>
 						
 					</div>
 				<% end %> 
