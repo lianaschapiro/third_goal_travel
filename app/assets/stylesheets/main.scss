@@ -414,7 +414,7 @@ textarea {
 	position: relative;
 	display: none;
 	width: 70%;
-	height: 90%;
+	height: 85%;
 	background-color: $default-light-red;
 	margin: 20px auto;
 	overflow: auto;
@@ -569,4 +569,39 @@ textarea {
 	}
 }
 
+@media all and (max-width: 600px) {
+	nav {
+		ul.left{
+			display: none;
+		}
+		ul.middle {
+			float: left;
+			margin-left: 0px;
+		#country_name a{
+			font-size: 20px;
+			}
+
+		}
+		ul.right li a, .dropbtn {
+			font-size: 12px;
+			margin-top: 5px;
+		}
+	}
+
+	#map {
+		width: 90%;
+		margin: 0 auto;
+	}
+	#review_wrapper {
+		width: 100%;
+	}
+	#volunteer_journals {
+		width: 100%;
+		background-color: $default-light-yellow;
+	}
+	#message_board {
+		width: 100%;
+		background-color: $default-light-red;
+	}
+}
 
