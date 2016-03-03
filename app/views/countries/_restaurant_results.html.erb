@@ -2,7 +2,7 @@
 	<div class="individual_reviews">
 		<% if p.post_type == "restaurant" %>
 			<h4><b><%= p.title %></b></h4>
-			<p><%= p.body %></p>
+			<p><%= p.body.truncate_words(15) %></p>
 			<p>Address: <%= p.full_address %></p>
 			<p><%= link_to "full review and comments (#{p.comments.count})", country_review_path(p.country, p) %> </p>
 		<% end %>
@@ -15,4 +15,5 @@
 	<%= text_field_tag :search, params[:search], placeholder: "Search restaurant reviews" %>
 	<%= submit_tag "Search" %>
 <% end %>
+
 <button><%= link_to "Clear Search Filters", @country %></button>
