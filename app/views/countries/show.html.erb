@@ -112,7 +112,9 @@
 	<!-- Javascript to create country map -->
 	<script type="text/javascript">
 		function initialize() {
-			
+
+			var prev_infowindow = false;
+
 		  var myCenter = new google.maps.LatLng(<%= @country.latitude %>, <%= @country.longitude %>)
 		  var mapProp = {
 		    scrollwheel: false,
@@ -128,11 +130,6 @@
 		  var marker = new google.maps.Marker({
 		    // position:myCenter,
 		  });
-
-		  // Opens infowindow on marker click
-		  // google.maps.event.addListener(marker, 'click', function() {
-		  //   infowindow.open(map,marker);
-		  //   });
 
 		  // This is a new map with a geocoded address
 		  var geocoder = new google.maps.Geocoder();
@@ -188,7 +185,10 @@
 		     
 		        // Zooms in on marker click
 		        google.maps.event.addListener(marker, 'click', function () {
-		        	console.log(infoWindow)
+		        	if (prev_infowindow){
+		        		prev_infowindow.close();
+		        	}
+							prev_infowindow = infoWindow
 		          infoWindow.open(map, this);
 		          map.setZoom(17);
 		          map.setCenter(marker.getPosition());
