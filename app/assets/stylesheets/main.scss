@@ -585,9 +585,12 @@ textarea {
 		ul.right li a, .dropbtn {
 			font-size: 12px;
 			margin-top: 5px;
+			padding-right: 10px;
 		}
 	}
-
+	#headline {
+		font-size: 60px;
+	}
 	#map {
 		width: 90%;
 		margin: 0 auto;
