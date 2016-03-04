@@ -569,6 +569,13 @@ textarea {
 	}
 }
 
+@media all and (max-width: 667px) {
+#headline {
+		padding-top: 30px;
+		font-size: 50px;
+	}
+}
+
 @media all and (max-width: 600px) {
 	nav {
 		ul.left{
@@ -589,7 +596,7 @@ textarea {
 		}
 	}
 	#headline {
-		font-size: 60px;
+		padding-top: 0px;
 	}
 	#map {
 		width: 90%;
